@@ -1,4 +1,4 @@
-# Erstes Gruppentreffen 23.04.#
+# Erstes Gruppentreffen 23.04. #
 ----------
 
 Zeit: 14.30 - 15.15 
@@ -11,21 +11,21 @@ Zeit: 14.30 - 15.15
 - Hung Nguyen
 - Fabian Krehnke
 
-Gruppenbesprechnung des Themas und nachbearbeitung des Erstgesprächs. 
+Gruppenbesprechnung des Themas und Nachbearbeitung des Erstgesprächs. 
 
 Einteilung der Verantwortungsbereiche des Projektes und 
 Verteilung dieser auf die Gruppenmitglieder.
 
 **Rollen**
 
-- Projektleiter: 			Leo Lindhorst
-- Analyse : 				Oliver von Seydlitz
-- Entwurf (Grob-, Fein-): 	Dennis
-- Implementierung: 			Leo Lindhorst
-- Test: 					Oliver von Seydlitz
-- Datenbank: 				Hung Nguyen
-- Dokumentation: 			Fabian Krehnke 
-- Qualitätssicherung: 		Dennis 
+- Projektleiter: Leo Lindhorst
+- Analyse : Oliver von Seydlitz
+- Entwurf (Grob-, Fein-): Dennis
+- Implementierung: Leo Lindhorst
+- Test: Oliver von Seydlitz
+- Datenbank: Hung Nguyen
+- Dokumentation: Fabian Krehnke 
+- Qualitätssicherung: Dennis 
 
 Absprache welche Tools für die interne Gruppenorganisationen genutzt werden. 
 
@@ -36,4 +36,4 @@ Absprache welche Tools für die interne Gruppenorganisationen genutzt werden.
 - Projektmanagement: Clickup
 
 
-Den Termin für das erste Meilensteintreffen ausgemacht.
+Den 02.05. für das erste Meilensteintreffen ausgemacht. 
