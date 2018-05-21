@@ -1,14 +1,14 @@
-# Erstes Meilensteintreffen #
+# Erstes Meilensteintreffen 02.05. #
 ----------
 
 Zeit: 13.20 - 14.00
 
-**Anwesenheit**
+## Anwesenheit ##
 
 - Herr Zirklebach
 - Leo Lindhorst
 - Oliver von Seydlitz
-- Dennis
+- Denis Keiling
 - Hung Nguyen
 - Fabian Krehnke
 
@@ -18,3 +18,4 @@ Es wurden Fragen der Gruppenmitglieder über die zugeteilten Themengebiete gekl�
 
 Besprechnung der von Oliver von Seydlitz erstellten Anforderungsanalyse für das Pflichtenheft. 
 Konkretisierung der Termine bzw Zeiträume die in dem Projekt vorhanden sein sollen. 
+Ergebnis war 
