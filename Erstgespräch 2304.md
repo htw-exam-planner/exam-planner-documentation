@@ -8,12 +8,12 @@ Inhalt des Gesprächs war die Anforderungsanalyse mit dem Auftraggeber um die Ra
 
 Zeit: 13.20 - 14.30 
 
-**Anwesenheit**
+## Anwesenheit ##
 
 - Frau Hauptmann
 - Leo Lindhorst
 - Oliver von Seydlitz
-- Dennis
+- Denis Keiling
 - Hung Nguyen
 - Fabian Krehnke
 

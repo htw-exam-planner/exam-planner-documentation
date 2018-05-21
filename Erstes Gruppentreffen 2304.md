@@ -3,11 +3,11 @@
 
 Zeit: 14.30 - 15.15 
 
-**Anwesenheit**
+## Anwesenheit ##
 
 - Leo Lindhorst
 - Oliver von Seydlitz
-- Dennis
+- Denis Keiling
 - Hung Nguyen
 - Fabian Krehnke
 
@@ -20,12 +20,12 @@ Verteilung dieser auf die Gruppenmitglieder.
 
 - Projektleiter: Leo Lindhorst
 - Analyse : Oliver von Seydlitz
-- Entwurf (Grob-, Fein-): Dennis
+- Entwurf (Grob-, Fein-): Denis Keiling
 - Implementierung: Leo Lindhorst
 - Test: Oliver von Seydlitz
 - Datenbank: Hung Nguyen
 - Dokumentation: Fabian Krehnke 
-- Qualitätssicherung: Dennis 
+- Qualitätssicherung: Denis Keiling 
 
 Absprache welche Tools für die interne Gruppenorganisationen genutzt werden. 
 
