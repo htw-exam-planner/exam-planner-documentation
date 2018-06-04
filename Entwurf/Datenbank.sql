@@ -8,14 +8,13 @@ SET FOREIGN_KEY_CHECKS = 1;
 CREATE TABLE `Gruppe` (
     `GruppenNummer` INTEGER NOT NULL,
     PRIMARY KEY (`GruppenNummer`),
-    UNIQUE (`GruppenNummer`)
 );
 
 CREATE TABLE `Termin` (
     `Datum` DATE NOT NULL,
     `Zustand` CHAR(11) NOT NULL,
     `Startzeit` TIME NOT NULL,
-    `Endzeit` TIME,
+    `Endzeit` TIME NOT NULL,
     `Bemerkung` VARCHAR(128),
     PRIMARY KEY (`Datum`),
     UNIQUE (`Datum`)
@@ -25,10 +24,9 @@ CREATE TABLE `Buchung` (
     `Gruppe` INTEGER NOT NULL,
     `Startzeit` TIME NOT NULL,
     `Endzeit` TIME,
-    `Raum` CHAR(15) NOT NULL,
+    `Raum` CHAR(15),
     `Termin` DATE NOT NULL,
     PRIMARY KEY (`Termin`),
-    UNIQUE (`Gruppe`, `Termin`)
 );
 
 CREATE TABLE `Reservierung` (
