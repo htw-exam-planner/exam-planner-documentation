@@ -7,7 +7,7 @@ SET FOREIGN_KEY_CHECKS = 1;
 
 CREATE TABLE `Gruppe` (
     `GruppenNummer` INTEGER NOT NULL,
-    PRIMARY KEY (`GruppenNummer`),
+    PRIMARY KEY (`GruppenNummer`)
 );
 
 CREATE TABLE `Termin` (
@@ -26,7 +26,7 @@ CREATE TABLE `Buchung` (
     `Endzeit` TIME,
     `Raum` CHAR(15),
     `Termin` DATE NOT NULL,
-    PRIMARY KEY (`Termin`),
+    PRIMARY KEY (`Termin`)
 );
 
 CREATE TABLE `Reservierung` (
