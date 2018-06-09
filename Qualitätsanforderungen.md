@@ -8,6 +8,6 @@
 * Der Quellcode folgt dem Prinzip KISS (Keep it stupid simple) und DRY (Don't repeat yourself).
 * Das Umbrechen einer Quellcodezeile ist zu vermeiden.
 * Die Implementierung muss jederzeit durch andere Projektmitglieder verstanden werden können.
-* Es finden regelmäßig Codereviws von @Devwurm, @reviloves und @denisk176 statt. Jegliche Änderungen am Quellcode werden in einem extra Branch verwaltet und nur über einen Pull-Request in den master-Branch gemerged. 
+* Jegliche Änderungen am Quellcode werden in einem extra Branch verwaltet und nur über einen Pull-Request in den master-Branch gemerged. Jeder Pull-Request wird von Devwurm, reviloves und denisk176 kontrolliert. 
 * Das Softwaresystem besitzt mehrere Klassen, die nach Modulen unterteilt sind.
 * Der Quellcode des Softwaresystems wird versioniert und auf Github allen Mitgliedern zugänglich gemacht.
