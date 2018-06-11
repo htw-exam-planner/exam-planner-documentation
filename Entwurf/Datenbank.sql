@@ -16,8 +16,7 @@ CREATE TABLE `Appointment` (
     `StartTime` TIME NOT NULL,
     `EndTime` TIME NOT NULL,
     `Note` VARCHAR(128),
-    PRIMARY KEY (`Date`),
-    UNIQUE (`Date`)
+    PRIMARY KEY (`Date`)
 );
 
 CREATE TABLE `Booking` (
@@ -31,12 +30,11 @@ CREATE TABLE `Booking` (
 
 CREATE TABLE `Reservation` (
     `Group` INTERGER NOT NULL,
-    `Appointments` DATE NOT NULL,
-    PRIMARY KEY (`Group`),
-    UNIQUE (`Group`, `Appointments`)
+    `Appointment` DATE NOT NULL,
+    PRIMARY KEY (`Group`)
 );
 
 ALTER TABLE `Booking` ADD FOREIGN KEY (`Group`) REFERENCES `Group`(`GroupNumber`);
 ALTER TABLE `Booking` ADD FOREIGN KEY (`Appoinment`) REFERENCES `Appointment`(`Date`);
 ALTER TABLE `Reservation` ADD FOREIGN KEY (`Group`) REFERENCES `Group`(`GroupNumber`);
-ALTER TABLE `Reservation` ADD FOREIGN KEY (`Appointments`) REFERENCES `Appointment`(`Date`);
+ALTER TABLE `Reservation` ADD FOREIGN KEY (`Appointment`) REFERENCES `Appointment`(`Date`);
