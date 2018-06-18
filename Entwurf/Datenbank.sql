@@ -35,12 +35,12 @@ CREATE TABLE Reservation (
 );
 
 CREATE TABLE State (
-    Number INTEGER NOT NULL,
+    ID INTEGER NOT NULL,
     Name CHAR(12) NOT NULL,
-    PRIMARY KEY (Number)
+    PRIMARY KEY (ID)
 );
 
-ALTER TABLE Appointment ADD FOREIGN KEY (State) REFERENCES State(Number);
+ALTER TABLE Appointment ADD FOREIGN KEY (State) REFERENCES State(ID);
 ALTER TABLE Booking ADD FOREIGN KEY (Reservation) REFERENCES Reservation(Group);
 ALTER TABLE Reservation ADD FOREIGN KEY (Group) REFERENCES Group(GroupNumber);
 ALTER TABLE Reservation ADD FOREIGN KEY (Appointment) REFERENCES Appointment(Date);
