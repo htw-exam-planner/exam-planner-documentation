@@ -11,7 +11,7 @@ Zeit: 14.30 - 15.15
 - Hung Nguyen
 - Fabian Krehnke
 
-Gruppenbesprechnung des Themas und Nachbearbeitung des Erstgesprächs. 
+Gruppenbesprechnung des Themas und Nachbearbeitung des Anforderungsworkshops. 
 
 Einteilung der Verantwortungsbereiche des Projektes und 
 Verteilung dieser auf die Gruppenmitglieder.
