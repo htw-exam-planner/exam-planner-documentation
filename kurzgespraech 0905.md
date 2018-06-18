@@ -1,5 +1,4 @@
 # Kurzgespräch 09.05. #
-----------
 
 Zeit:12:40 - 12:50 
 
@@ -10,6 +9,8 @@ Zeit:12:40 - 12:50
 - Oliver von Seydlitz
 - Denis Keiling
 - Hung Nguyen
+
+## 1. Inhalt
 
 Besprechnung mit Frau Hauptmann über die möglichen Zustände innerhalb der Anwendung. Der Zustand *gebucht nicht bestätigt * wurde auf Wunsch von Frau Hauptmann entfernt. 
 
