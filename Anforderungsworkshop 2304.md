@@ -1,6 +1,6 @@
 # Anforderungsworkshop 23.04. 
 
-----------
+
 Zeit: 13.20 - 14.30 
 
 ## Anwesenheit
