@@ -31,7 +31,7 @@ Die Struktur des Pflichtenheftes muss überarbeitet werden damit es nachvollzieh
 ## 2.2. Diagramme ##
 
 Bei dem Systemkontext-Diagramm hat eine Legende zur Erklärung gefehlt.
-Bei dem Anwendungsfall-Diagramm soll das "Include" entfernt und zwischen Gruppe löschen und Gruppe anzeigen gesetzt werden.
+Bei den Anwendungsfall-Diagrammen soll das "Include" entfernt und zwischen Gruppe löschen und Gruppe anzeigen gesetzt werden.
 
 ## 2.3. UI-Protoypen ##
 
