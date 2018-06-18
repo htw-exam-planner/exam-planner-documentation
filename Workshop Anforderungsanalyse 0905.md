@@ -1,7 +1,7 @@
-# Workshop Anforderungsanalyse 09.05. #
+# Kurzgespräch 09.05. #
 ----------
 
-Zeit:12:40 - 13.40 
+Zeit:12:40 - 12:50 
 
 ## Anwesenheit ##
 
