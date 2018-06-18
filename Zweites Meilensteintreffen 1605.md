@@ -1,6 +1,6 @@
 # Zweites Meilensteintreffen 16.05. #
 
-----------
+
 Zeit: 14.15 - 15.15
 
 ## Anwesenheit 
