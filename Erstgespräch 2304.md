@@ -1,4 +1,4 @@
-# Erstgespräch 23.04. #
+# Anforderungsworkshops 23.04. #
 
 ## Aufgabenstellung ##
 
