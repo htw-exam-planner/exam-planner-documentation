@@ -8,6 +8,8 @@ Zeit:12:40 - 12:50
 - Frau Hauptmann
 - Leo Lindhorst
 - Oliver von Seydlitz
+- Denis Keiling
+- Hung Nguyen
 
 Besprechnung mit Frau Hauptmann über die möglichen Zustände innerhalb der Anwendung. Der Zustand *gebucht nicht bestätigt * wurde auf Wunsch von Frau Hauptmann entfernt. 
 
