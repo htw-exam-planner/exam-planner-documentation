@@ -1,4 +1,4 @@
-# Anforderungsworkshops 23.04. #
+# Anforderungsworkshop 23.04. #
 
 ## Aufgabenstellung ##
 
