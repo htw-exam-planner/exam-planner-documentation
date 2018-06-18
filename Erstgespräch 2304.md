@@ -41,3 +41,4 @@ Der Prüfling kann nur *reserviert* ändern und kann nur eine Eintragung aktiv h
 - Passwortabfrage für den Prüfling
 - Auszug für eigenen Kalender und/oder Excel Tabelle
 
+Den 02.05. für das erste Meilensteintreffen ausgemacht. 
