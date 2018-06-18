@@ -12,7 +12,7 @@ Zeit: 14.15 - 15.15
 - Hung Nguyen
 - Fabian Krehnke
 
-# 1. Hinhalte #
+# 1. Inhalte #
 Vorstellung des Pflichtenheftes durch Oliver und der UI-Prototypen von Leo.
 
 - Das Pflichtenheft wurde in Markdown erstellt und die enthaltenen
