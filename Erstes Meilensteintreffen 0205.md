@@ -16,6 +16,8 @@ Ansprechpartner in diesem Termin war Herr Zirkelbach da Frau Hauptmann Krankheit
 
 Es wurden Fragen der Gruppenmitglieder über die zugeteilten Themengebiete geklärt.
 
-Besprechnung der von Oliver von Seydlitz erstellten Anforderungsanalyse für das Pflichtenheft. 
-Konkretisierung der Termine bzw Zeiträume die in dem Projekt vorhanden sein sollen. 
-Ergebnis war 
+Vorstellung der von Oliver von Seydlitz erstellten Anforderungsanalyse für das Pflichtenheft. 
+
+Besprechnung der Termine bzw Zeiträume die in dem Projekt vorhanden sein sollen. 
+
+Ergebnis war die aktivierung und deaktivierung der Tage mit in das Projekt mit aufzunehmen.
