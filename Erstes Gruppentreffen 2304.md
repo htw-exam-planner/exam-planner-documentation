@@ -34,6 +34,3 @@ Absprache welche Tools für die interne Gruppenorganisationen genutzt werden.
 - GitHub und Git für Versionsverwaltung 
 - Kommunikation: Slack und Email
 - Projektmanagement: Clickup
-
-
-Den 02.05. für das erste Meilensteintreffen ausgemacht. 
