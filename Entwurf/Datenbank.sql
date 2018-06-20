@@ -3,7 +3,6 @@ DROP TABLE IF EXISTS Group;
 DROP TABLE IF EXISTS Appointment;
 DROP TABLE IF EXISTS Booking;
 DROP TABLE IF EXISTS Reservation;
-DROP TABLE IF EXISTS State;
 SET FOREIGN_KEY_CHECKS = 1;
 
 CREATE TABLE Group (
@@ -13,7 +12,7 @@ CREATE TABLE Group (
 
 CREATE TABLE Appointment (
     Date DATE NOT NULL,
-    State INTEGER NOT NULL,
+    Appointment BOOLEAN NOT NULL,
     StartTime TIME NOT NULL,
     EndTime TIME NOT NULL,
     Note VARCHAR(128),
@@ -34,13 +33,6 @@ CREATE TABLE Reservation (
     PRIMARY KEY (Group)
 );
 
-CREATE TABLE State (
-    ID INTEGER NOT NULL,
-    Name CHAR(12) NOT NULL,
-    PRIMARY KEY (ID)
-);
-
-ALTER TABLE Appointment ADD FOREIGN KEY (State) REFERENCES State(ID);
 ALTER TABLE Booking ADD FOREIGN KEY (Reservation) REFERENCES Reservation(Group);
 ALTER TABLE Reservation ADD FOREIGN KEY (Group) REFERENCES Group(GroupNumber);
 ALTER TABLE Reservation ADD FOREIGN KEY (Appointment) REFERENCES Appointment(Date);
