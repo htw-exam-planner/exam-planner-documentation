@@ -12,7 +12,7 @@ CREATE TABLE Group (
 
 CREATE TABLE Appointment (
     Date DATE NOT NULL,
-    Appointment BOOLEAN NOT NULL,
+    Activated BOOLEAN NOT NULL,
     StartTime TIME NOT NULL,
     EndTime TIME NOT NULL,
     Note VARCHAR(128),
