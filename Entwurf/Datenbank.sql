@@ -1,11 +1,11 @@
 SET FOREIGN_KEY_CHECKS = 0;
-DROP TABLE IF EXISTS Group;
+DROP TABLE IF EXISTS Groups;
 DROP TABLE IF EXISTS Appointment;
 DROP TABLE IF EXISTS Booking;
 DROP TABLE IF EXISTS Reservation;
 SET FOREIGN_KEY_CHECKS = 1;
 
-CREATE TABLE Group (
+CREATE TABLE Groups (
     GroupNumber INTEGER NOT NULL,
     PRIMARY KEY (GroupNumber)
 );
@@ -34,5 +34,5 @@ CREATE TABLE Reservation (
 );
 
 ALTER TABLE Booking ADD FOREIGN KEY (Reservation) REFERENCES Reservation(Group);
-ALTER TABLE Reservation ADD FOREIGN KEY (Group) REFERENCES Group(GroupNumber);
+ALTER TABLE Reservation ADD FOREIGN KEY (Group) REFERENCES Groups(GroupNumber);
 ALTER TABLE Reservation ADD FOREIGN KEY (Appointment) REFERENCES Appointment(Date);
