@@ -12,7 +12,7 @@ CREATE TABLE Groups (
 
 CREATE TABLE Appointment (
     Date DATE NOT NULL,
-    Activated BOOLEAN NOT NULL,
+    Activated BIT NOT NULL,
     StartTime TIME NOT NULL,
     EndTime TIME NOT NULL,
     Note VARCHAR(128),
@@ -28,11 +28,11 @@ CREATE TABLE Booking (
 );
 
 CREATE TABLE Reservation (
-    Group INTEGER NOT NULL,
+    Groups INTEGER NOT NULL,
     Appointment DATE NOT NULL,
-    PRIMARY KEY (Group)
+    PRIMARY KEY (Groups)
 );
 
-ALTER TABLE Booking ADD FOREIGN KEY (Reservation) REFERENCES Reservation(Group);
-ALTER TABLE Reservation ADD FOREIGN KEY (Group) REFERENCES Groups(GroupNumber);
+ALTER TABLE Booking ADD FOREIGN KEY (Reservation) REFERENCES Reservation(Groups);
+ALTER TABLE Reservation ADD FOREIGN KEY (Groups) REFERENCES Groups(GroupNumber);
 ALTER TABLE Reservation ADD FOREIGN KEY (Appointment) REFERENCES Appointment(Date);
