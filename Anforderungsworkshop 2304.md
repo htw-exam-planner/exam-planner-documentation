@@ -16,7 +16,7 @@ Zeit: 13.20 - 14.30
 
 **Entwicklung eines SW‐Systems zur Unterstützung der Planung von Präsentationen im Kontext des Moduls SE II.**
 
-Inhalt des Gesprächs war die Anforderungsanalyse mit dem Auftraggeber um die Ziele und Rahmenbedingungen des Projektes festzustellen.
+Inhalt des Gesprächs war die Anforderungsanalyse mit dem Prüfer um die Ziele und Rahmenbedingungen des Projektes festzustellen.
 
 ### 1.1 Ausgangslage
 
@@ -24,27 +24,32 @@ Aktuell wird eine Excel-Tabelle für die Organisation genutzt. Diese liegt nur d
 
 ### 1.2 Problem
 
-der Prozess bis zum festen Termin ist zeitaufwendig, da viel kommuniziert werden muss und Zeiträume durch die Prüfungsphase beschränkt sind.
+Die Terminbelegung für Prüfungspräsentationen über E-Mail und manuelles Editieren der Excel-Tabelle ist zeitaufwändig und kann zu Fehlern führen.
 
 ### 1.3 Projektziel
 
-Das Ziel ist eine auf den Universitätsserver hinterlegte Website (PHP). Diese Website dient als Organisationshilfe für Professoren und Studenten um Termine für Präsentationen zu vereinbaren.
+Es soll ein Software-System entwickelt werden, über das die Terminplanung geregelt wird. Es soll folgendes gewährleisten:
+
+•	Ein gleichzeitiges Buchen darf nicht möglich sein um Konflikte zu vermeiden.
+•	Die Termine müssen vom Prüfer flexibel angegeben werden können.
+•	Organisation muss dezentral sein um den Prüfer zu entlasten.
+
 
 ### 1.4 Akteure
 
-Prüfender, Prüfling(Gruppe).
+Administrator(Prüfer), Student(Gruppe).
 
 ### 1.3 Optik und Nutzung
 
-Ein "Kalender" auf dem 15 Tage innerhalb der Prüfungsphase einsehbar sind. Die Tage sind mit Datum markiert und unterteilt in Doppelstunden gleich dem Stundenplan der HTW. Auf dieser Oberfläche können Termine mit 5 Zuständen eingetragen werden: *gesperrt*, *frei*, *reserviert*, *gebucht n.b.*, *gebucht b.*. Jeder Zustand besitzt eine eindeutige farbliche Markierung.
+Ein "Kalender" auf dem 15 Tage innerhalb der Prüfungsphase einsehbar sind. Die Tage sind mit Datum markiert und unterteilt in Doppelstunden gleich dem Stundenplan der HTW. Auf dieser Oberfläche können Termine mit 5 Zuständen eingetragen werden: *gesperrt*, *frei*, *reserviert*, *gebucht nicht bestätigt*, *gebucht bestätigt*. Jeder Zustand besitzt eine eindeutige farbliche Markierung.
 
-Der Prüfende trägt die Zustände *gesperrt*, *frei*, *gebucht b.* ein.
+Der Administrator trägt die Zustände *gesperrt*, *frei*, *gebucht bestätigt* ein.
 
-Der Prüfende kann alle Termine bzw. Zustände ändern.
+Der Administrator kann alle Termine bzw. Zustände ändern.
 
-Der Prüfling trägt die Zustände *reserviert*, *gebucht n.b.* ein.
+Der Student trägt die Zustände *reserviert*, *gebucht nicht bestätigt* ein.
 
-Der Prüfling kann nur *reserviert* ändern und kann nur eine Eintragung aktiv haben.
+Der Student kann nur *reserviert* ändern und kann nur eine Eintragung aktiv haben.
 
 ## 2 Optional
 
