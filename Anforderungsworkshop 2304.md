@@ -20,7 +20,7 @@ Inhalt des Gesprächs war die Anforderungsanalyse mit dem Prüfer um die Ziele u
 
 ### 1.1 Ausgangslage
 
-Aktuell wird eine Excel-Tabelle für die Organisation genutzt. Diese liegt nur dem Auftraggeber vor. In dieser Tabelle sind die möglichen Zeiten für einen Termin festgehalten. Der Raum, in dem dieser stattfindet ist noch nicht bekannt. Termine und Termin Änderungen werden über E-Mail und Telefon in Absprache mit dem Auftraggeber ausgemacht und von ihm in die Liste eingetragen.
+Aktuell wird eine Excel-Tabelle für die Organisation genutzt. Diese liegt nur dem Prüfer vor. In dieser Tabelle sind die möglichen Zeiten für einen Termin festgehalten. Der Raum, in dem dieser stattfindet ist noch nicht bekannt. Termine und Termin Änderungen werden über E-Mail und Telefon in Absprache mit dem Auftraggeber ausgemacht und von ihm in die Liste eingetragen.
 
 ### 1.2 Problem
 
@@ -30,9 +30,9 @@ Die Terminbelegung für Prüfungspräsentationen über E-Mail und manuelles Edit
 
 Es soll ein Software-System entwickelt werden, über das die Terminplanung geregelt wird. Es soll folgendes gewährleisten:
 
-•	Ein gleichzeitiges Buchen darf nicht möglich sein um Konflikte zu vermeiden.
-•	Die Termine müssen vom Prüfer flexibel angegeben werden können.
-•	Organisation muss dezentral sein um den Prüfer zu entlasten.
+- Ein gleichzeitiges Buchen darf nicht möglich sein um Konflikte zu vermeiden.
+-	Die Termine müssen vom Prüfer flexibel angegeben werden können.
+-	Organisation muss dezentral sein um den Prüfer zu entlasten.
 
 
 ### 1.4 Akteure
