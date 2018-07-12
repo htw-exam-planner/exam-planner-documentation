@@ -21,4 +21,4 @@ Besprechnung der Termine bzw Zeiträume die in dem Projekt vorhanden sein sollen
 
 ## 2. Ergebinis 
 
-Die Funktion der Aktivierung und Deaktivierung der Tage mit in das Projekt aufzunehmen.
+Die gesperrten Termine werden über den Zustand "deaktiviert" abgebildet. Es ist immer ein Termin als Ganzes (d.h. ein Tag) aktiviert oder   deaktiviert.
