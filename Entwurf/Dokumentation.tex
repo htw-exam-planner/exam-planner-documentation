@@ -1,69 +1,19 @@
 \documentclass[10pt,a4paper]{article}
 \usepackage[utf8]{inputenc}
 \usepackage[german]{babel}
-\usepackage[T1]{fontenc}
-\usepackage{amsmath}
-\usepackage{amsfonts}
-\usepackage{amssymb}
 \usepackage{graphicx}
 \usepackage[table,x11names]{xcolor}
-\newcommand\sbullet[1][.5]{\mathbin{\vcenter{\hbox{\scalebox{#1}{$\bullet$}}}}}
-\graphicspath{ {/home/ducio/Desktop/Se/exam-planner-documentation/Entwurf} }
 
 \begin{document}
 
-Datenbank für das Applikation besteht aus  vier Tabele : Group, Reservation, Appointment und Booking.
+Die Datenbank für die Applikation besteht aus vier Tabellen : Group, Reservation, Appointment und Booking.
+Die Struktur der Tabellen ist in Abbildung \ref{fig:ER-Diagram} dargestellt.
 
-\begin{table}[h]
-\centering
-	\caption{Reservation}
-    \begin{tabular}{| l | l | l |}
-    \hline
-    \rowcolor{lightgray} Columm & Datentyp & Beschreibung  \\ \hline
-    Groups & INTEGER & Gruppesnummer(Primarykey, Foreign key auf Groups.Groupnumber).  \\ \hline
-    Appoinment & DATE & Terminsvreservierung(Foreign key auf Appointment.Date). \\ \hline
-    \end{tabular}
-\end{table}
-Logikserläuterung zur Tabelle Rerservation
-
-\begin{itemize}
-\item Gruppesnummer ist eindeutig, 
-\item Terminsreservierung kann nur einen Termin( Appointment) haben.
-\item Terminsreservierung darf nur von einer Gruppe ausgemacht werden.
-\end{itemize}
-\begin{table}[h]
-\centering
-\caption{Groups}
-    \begin{tabular}{| l | l | l | l |}
-    \hline
-    \rowcolor{lightgray} Columm & Datentyp & Beschreibung  \\ \hline
-    Groupnumber & INTEGER & Groupsnummer(Primarykey).  \\ \hline
-   \end{tabular}
-\end{table}
-Logiksserläuterung zur Tabelle Groups
-\begin{itemize}
-\item Jede Gruppe kann entweder eine Reservierung oder gar keine haben. 
-\item Gruppesnummer ist eindeutig.
-\end{itemize}
-
-\begin{table}[h]
-\centering
-\caption{Booking}
-    \begin{tabular}{| l | l | l | l |}
-    \hline
-    \rowcolor{lightgray} Columm & Datentyp & Beschreibung  \\ \hline
-    Reservation  & INTEGER & Terminsbuchung(Primarykey,Foreign key Reservation.Groups). \\ \hline
-    Startime & TIME & Startzeit des Termins. \\ \hline
-    Endtime & TIME & Endzeit des Termins. \\ \hline
-    Room & CHAR(15) & Raum wo der Termin stattfindet. \\ \hline
-    \end{tabular}
-\end{table}
-
-
-Logikserläuterung zur Tabelle Booking
-\begin{itemize}
-\item ich weiß nicht mehr wie ich beschreiben soll?
-\end{itemize}
+\begin{figure}[ht]
+	\centering
+	\includegraphics[scale=0.3]{ER-Diagramm}
+	\caption{Datenbankentwurf}	
+	\end{figure}
 
 \begin{table}[h]
 \centering
@@ -79,17 +29,64 @@ Logikserläuterung zur Tabelle Booking
     \end{tabular}
 \end{table}
 
+
 Logikserläterung zur Tabelle Appointment
 \begin{itemize}
 \item Datum des Gruppepresentations ist eindeutig,es darf nur eine Presentation pro tag geben.
 \item Einen Termin kann mit eine Reservierung oder gar keine ausgemacht werden, 
 \end{itemize}
 
-\begin{figure}[ht]
-	\centering
-	\includegraphics[scale=0.3]{ER-Diagramm}
-	\caption{Datenbankentwurf}	
-	\end{figure}
+\begin{table}[h]
+\centering
+	\caption{Reservation}
+    \begin{tabular}{| l | l | l |}
+    \hline
+    \rowcolor{lightgray} Columm & Datentyp & Beschreibung  \\ \hline
+    Groups & INTEGER & Gruppesnummer(Primarykey, Foreign key auf Groups.Groupnumber).  \\ \hline
+    Appoinment & DATE & Terminsvreservierung(Foreign key auf Appointment.Date). \\ \hline
+    \end{tabular}
+\end{table}
+Logikserläuterung zur Tabelle Rerservation
+
+\begin{itemize} 
+\item Terminsreservierung kann nur einen Termin( Appointment) haben.
+\item Terminsreservierung darf nur von einer Gruppe ausgemacht werden.
+\end{itemize}
+\begin{table}[h]
+\centering
+\caption{Groups}
+    \begin{tabular}{| l | l | l | l |}
+    \hline
+    \rowcolor{lightgray} Columm & Datentyp & Beschreibung  \\ \hline
+    Groupnumber & INTEGER & Groupsnummer(Primarykey).  \\ \hline
+   \end{tabular}
+\end{table}
+
+\begin{itemize}
+\item Jede Gruppe kann entweder eine Reservierung oder gar keine haben. 
+
+\end{itemize}
+
+
+\begin{table}[h]
+\centering
+\caption{Booking}
+    \begin{tabular}{| l | l | l | l |}
+    \hline
+    \rowcolor{lightgray} Columm & Datentyp & Beschreibung  \\ \hline
+    Reservation  & INTEGER & Terminsbuchung(Primarykey,Foreign key Reservation.Groups). \\ \hline
+    Startime & TIME & Startzeit des Termins. \\ \hline
+    Endtime & TIME & Endzeit des Termins. \\ \hline
+    Room & CHAR(15) & Raum wo der Termin stattfindet. \\ \hline
+    \end{tabular}
+\end{table}
+
+Logikserläuterung zur Tabelle Booking
+\begin{itemize}
+\item jede Gruppe kann max. 1 Reservierung oder Buchung haben 
+\end{itemize}
+
+
 
 \end{document}
 
