@@ -20,7 +20,7 @@ Inhalt des Gesprächs war die Anforderungsanalyse mit dem Prüfer um die Ziele u
 
 ### 1.1 Ausgangslage
 
-Aktuell wird eine Excel-Tabelle für die Organisation genutzt. Diese liegt nur der Prüferin vor. In dieser Tabelle sind die möglichen Zeiten für einen Termin festgehalten. Der Raum, in dem dieser stattfindet ist noch nicht bekannt. Termine und Terminänderungen werden über E-Mail und Telefon in Absprache mit der Prüferin ausgemacht und von ihm in die Liste eingetragen.
+Aktuell wird eine Excel-Tabelle für die Organisation genutzt. Diese liegt nur der Prüferin vor. In dieser Tabelle sind die möglichen Zeiten für einen Termin festgehalten. Der Raum, in dem dieser stattfindet ist noch nicht bekannt. Termine und Terminänderungen werden über E-Mail und Telefon in Absprache mit der Prüferin ausgemacht und von ihr in die Liste eingetragen.
 
 ### 1.2 Problem
 
