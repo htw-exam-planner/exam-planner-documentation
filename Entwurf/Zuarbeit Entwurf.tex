@@ -11,27 +11,27 @@
 
 \begin{document}
 \section{Grobentwurf}
-Der Grobentwurf wurde so gestaltet, dass er nach der 3-Schichtenarchitektur aufgebaut ist. Genauer gesagt wurde innerhalb dieser, dass Model-View-Controller Muster verwendet. 
+Der Grobentwurf in Abbildung \ref{fig:Paketdiagramm_Grobentwurf} wurde so gestaltet, dass er nach der 3-Schichtenarchitektur aufgebaut ist. Genauer gesagt wurde innerhalb dieser, dass Model-View-Controller Muster verwendet. 
 Dabei wurde die View und der Controller für die Präsentationsschicht und das Model für die Logikschicht verwendet.Die Datenhaltungsschicht der 3 Schichtenarchitektur entspricht unserem Repository
 
 \subsection{Einzelne Elemente des MVC}
   \subsubsection{Model} 
-    Das Model erhält die Domänendaten.Es wird durch seine Funktionalitäten verändert.
+    Die Models erhalten die Domänendaten.Sie wird durch ihre Funktionalitäten verändert. Die Models werden von allen Paketen Start,Student und Admin ben\"otigt. Dies geht aus der Abbildung \ref{fig:Paketdiagramm_Grobentwurf} hervor.
+    Durch Ver\"anderungen in den Methoden reagieren die Models auf die Anferderungen.
    \subsubsection{View}
-   Die View ist für die Darstellung die die Interaktion mit dem Nutzer zuständig, solbald der Nutzer zum Beispiel auf der Oberfläche einen Klick ausführt, wird dies sofort an den Controller weitergegeben, der wiederrum das Model kontaktiert.
+   Die View ist für die Darstellung der Daten und der Interaktion mit dem Nutzer zuständig, solbald der Nutzer zum Beispiel auf der Oberfläche einen Klick ausführt, wird dies sofort an den Controller weitergegeben, der wiederrum das Model kontaktiert.
+   Wie im Paketdiagramm in  Abbildung \ref{fig:Paketdiagramm_Grobentwurf} ersichtlich enthalten die Pakete Start,Student, Admin eine oder mehrere Views.
+   Au\ss{}erdem besitzen die Views eine Abh\"angigkeit zum Model.
    \subsubsection{Controller}
-   Der Controller ist ein zentrales Element, dass die Daten der View entgegenimmt und dann ein Event behandelt, die vom Controller ausgelöst werden.
-   \subsection{Paketdiagramm des Grobentwurfs}
+   Die Controller behandeln jeweils die Ereignisse, die von den Views ausgelöst werden. Auch die Controller ben\"otigen zwingend das Model um auf Ereignisse zu reagieren. Dies kann man sehr gut in der Abbildung \ref{fig:Paketdiagramm_Grobentwurf} im Paketdiagramm sehen.
+   
    \begin{figure}
     \includegraphics[scale=0.5]{Entwurf_PD_Grobentwurf.png}
     \label{fig:Paketdiagramm_Grobentwurf}
     \caption{Paketdiagramm Grobentwurf}
    \end{figure} 
 
-   \subsection{Erläuterungen zum Paketdiagramm}
-   Wie man in Abbildung \ref{fig:Paketdiagramm_Grobentwurf} sehen kann, besitzt das Programm die Pakete Start,Student,Admin, Model und Repository.
-   Bis auf das Model und das Repostitory besitzt jedes Paket eine oder mehrere Views und Controller, die dann mit dem Model interagieren. Das Model kommuniziert dann mit dem Repository und leitet die Ergebnisse dann weiter an die Controller und Views.
-   \newpage
+  \newpage
 \section{Feinentwurf}
 Der Feinentwurf wurde zur besseren Übersicht in mehrere Klassendiagramme unterteilt. Für jede Rolle, die im Programm möglich ist, befindet sich ein Klassendiagramm.
 Davon getrennt liegt das Repository. Es wird verwendet um Objekte auf Datenbankrelationen abzubilden und Datenbankrelationen auf Objekte abzubilden. Da wir uns aus Gründen der Wartbarkeit für das MVC-Konzept entschieden haben,hat jeder Controller eine View.
@@ -77,4 +77,5 @@ Durch diese Gestaltung der Komponenten haben wir außerdem eine bessere Wiederve
 
 Im Paket Model in Abbildung \ref{fig:Klassendiagramm_Models-Repo} befinden sich die Klassen Appointment,Reservation,Booking, TimeWindow und Group. Die Klasse Appointment ist für die Termine zuständig. Die Klasse Reservation kümmert sich um Reservierungen. Booking um das Buchen von Terminen, TimeWindow um die Zeiten der Reservierungen und Buchungen und die Klasse Group um alle Belange der Gruppen, wie zum Beispiel anlegen oder löschen.
 Im Paket Repository ebenfalls in Abbildung \ref{fig:Klassendiagramm_Models-Repo} befindet sich die Klasse DbRepository. Es kümmert sich um die Verbindung zur Datenbank und gibt zum Beipiel alle Gruppen aus oder fügt Termine ein.
+Wichtig zu erw\"ahnen sind die Klassen Reservation, Booking und TimeWindow. Diese besitzen eine Komposition, da sie ein Teil der Klasse Appointment ist. Dort werden Methoden verwendet, die die entsprechenden Klassen bedingen.
 \end{document}
