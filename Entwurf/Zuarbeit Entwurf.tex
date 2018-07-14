@@ -11,16 +11,16 @@
 
 \begin{document}
 \section{Grobentwurf}
-Der Grobentwurf in Abbildung \ref{fig:Paketdiagramm_Grobentwurf} wurde so gestaltet, dass er nach der 3-Schichtenarchitektur aufgebaut ist. Genauer gesagt wurde innerhalb dieser, dass Model-View-Controller Muster verwendet. 
-Dabei wurde die View und der Controller für die Präsentationsschicht und das Model für die Logikschicht verwendet.Die Datenhaltungsschicht der 3 Schichtenarchitektur entspricht unserem Repository
+Der Grobentwurf (siehe Abbildung \ref{fig:Paketdiagramm_Grobentwurf}) wurde nach der 3-Schichtenarchitektur aufgebaut. Genauer gesagt wurde innerhalb dieser das Model-View-Controller Muster verwendet. 
+Dabei bilden die Views und die Controller die Präsentationsschicht und das Model die Logikschicht. Die Datenhaltungsschicht der 3-Schichtenarchitektur entspricht dem Paket Repository.
 
 \subsection{Einzelne Elemente des MVC}
-  \subsubsection{Model} 
-    Die Models erhalten die Domänendaten.Sie wird durch ihre Funktionalitäten verändert. Die Models werden von allen Paketen Start,Student und Admin ben\"otigt. Dies geht aus der Abbildung \ref{fig:Paketdiagramm_Grobentwurf} hervor.
+  \subsubsection{Models} 
+    Die Models enthalten die Domänendaten. Sie werden durch ihre Methoden verändert. Die Models werden von allen Paketen Start, Student und Admin ben\"otigt. Dies geht aus der Abbildung \ref{fig:Paketdiagramm_Grobentwurf} hervor.
     Durch Ver\"anderungen in den Methoden reagieren die Models auf die Anferderungen.
-   \subsubsection{View}
-   Die Views sind für die Darstellung der Daten und der Interaktion mit dem Nutzer zuständig, solbald der Nutzer zum Beispiel auf der Oberfläche einen Klick ausführt, wird dies sofort an den Controller weitergegeben, der wiederrum das Model kontaktiert.
-   Wie im Paketdiagramm in  Abbildung \ref{fig:Paketdiagramm_Grobentwurf} ersichtlich enthalten die Pakete Start,Student, Admin eine oder mehrere Views.
+   \subsubsection{Views}
+   Die Views sind für die Darstellung der Daten und die Interaktion mit dem Nutzer zuständig, solbald der Nutzer zum Beispiel auf der Oberfläche einen Klick ausführt, wird dies sofort an den Controller weitergegeben, der wiederum das Model kontaktiert.
+   Wie im Paketdiagramm in  Abbildung \ref{fig:Paketdiagramm_Grobentwurf} ersichtlich ist, enthalten die Pakete Start, Student, Admin jeweils einen oder mehrere Views.
    Au\ss{}erdem besitzen die Views eine Abh\"angigkeit zum Model.
    \subsubsection{Controller}
    Die Controller erhalten über die Models Zugriff zu den Daten und führen über diese Änderungen an den Daten aus. Dies kann man sehr gut in der Abbildung \ref{fig:Paketdiagramm_Grobentwurf} im Paketdiagramm sehen.
@@ -33,9 +33,9 @@ Dabei wurde die View und der Controller für die Präsentationsschicht und das M
 
   \newpage
 \section{Feinentwurf}
-Der Feinentwurf wurde zur besseren Übersicht in mehrere Klassendiagramme unterteilt.F\"ur die Pakete Start,Student,Admin, Model und Repository werden im Folgenden Klassendiagramme gezeigt.
-Des Weiteren stellt das Klassendiagramm in Abbildung \ref{fig:Klassendiagramm_Models-Repo} das Repository und die Models dar  Es wird verwendet um Objekte auf Datenbankrelationen abzubilden und Datenbankrelationen auf Objekte abzubilden. Da wir uns aus Gründen der Wartbarkeit für das MVC-Konzept entschieden haben,hat jeder Controller eine View.
-Diese kommunizieren außerdem noch mit dem Model. Dieses besitzt als alleinige Komponente den Zugang zur Datenbank. Damit ist auch hier ohne großer Aufwand ein Austausch mit lokalen Daten möglich.
+Der Feinentwurf wurde zur besseren Übersicht in mehrere Klassendiagramme unterteilt.F\"ur die Pakete Start, Student, Admin, Model und Repository werden im Folgenden Klassendiagramme gezeigt.
+Des Weiteren stellt das Klassendiagramm in Abbildung \ref{fig:Klassendiagramm_Models-Repo} das Repository und die Models dar. Es wird verwendet um Objekte auf Datenbankrelationen und Datenbankrelationen auf Objekte abzubilden. Da wir uns aus Gründen der Wartbarkeit für das MVC-Konzept entschieden haben,hat jeder Controller eine View.
+Die Controller kommunizieren außerdem noch mit dem Model. Dieses besitzt als alleinige Komponente den Zugang zur Datenbank. Damit ist auch hier ohne großen Aufwand ein Austausch mit lokalen Daten möglich.
 Durch diese Gestaltung der Komponenten haben wir außerdem eine bessere Wiederverwendbarkeit von Komponenten geschaffen. 
 
  \subsection{Die Klassendiagramme im Detail}
@@ -44,38 +44,41 @@ Durch diese Gestaltung der Komponenten haben wir außerdem eine bessere Wiederve
  \begin{figure}
   \includegraphics[scale=0.5]{Entwurf_KD_Feinentwurf_Start.png}
   \label{fig:Klassendiagramm_Start}
-  \caption{Feinentwurf des Klassendiagramms Start}
+  \caption{Feinentwurf des Pakets Start}
  \end{figure} 
  
  Das Klassendiagramm in Abbildung \ref{fig:Klassendiagramm_Start} zeigt die Klassen der Startansicht. Hier kann ausgewählt werden, welche Rolle der Benutzer einnimmt. 
  Daher gibt es hier nur eine View und einen Controller. Diese bilden die Rollenauswahl ab.
+ 
  \subsubsection{Das Paket Student}
  
  \begin{figure}
 \includegraphics[scale=0.25]{Entwurf_KD_Feinentwurf_Student.png}
 \label{fig:Klassendiagramm_Student}
-\caption{Feinentwurf des Klassendiagramms Student}
+\caption{Feinentwurf des Pakets Student}
  \end{figure} 
 
- In dem Klassendiagramm in Abbildung \ref{fig:Klassendiagramm_Student} zeigt die Klassen der Studentenansicht. Es ist in drei Controller und Views unterteilt. Eine zur Gruppenauswahl, für die Termine und eine für den Buchungsdialog.
+Das Klassendiagramm in Abbildung \ref{fig:Klassendiagramm_Student} zeigt die Klassen der Studentenansicht. Es ist in drei Controller und Views unterteilt. Eine zur Gruppenauswahl, für die Termine und eine für den Buchungsdialog.
  Jede View ist wieder mit dem entsprechenden Controller verbunden. Zusätzlich dazu gibt es Verbindungen zum Model um notwendige Daten der Termine und die Gruppen zu bestimmen.
- \subsubsection{Das Klassendiagramm Admin}
+ 
+ \subsubsection{Das Paket Admin}
  \begin{figure}
   \includegraphics[scale=0.25]{Entwurf_KD_Feinentwurf_Admin.png}
   \label{fig:Klassendiagramm_Admin}
-  \caption{Feinentwurf des Klassendiagramms Admin}
+  \caption{Feinentwurf des Pakets Admin}
  \end{figure} 
 
- In Abbildung \ref{fig:Klassendiagramm_Admin} zeigt die Klassen der Adminansicht. Es gibt vier Controller mit den dazugehörigen Views.Der Controller für die Appointments und für den Bearbeitungsdialog benötigen im Model die Appointments. Der Groupcontroller benötigt Zugriff auf die Gruppen im Model
- \subsubsection{Das Klassendiagramm für das Model und Repository}
+ Die Abbildung \ref{fig:Klassendiagramm_Admin} zeigt die Klassen der Adminansicht. Es gibt vier Controller mit den dazugehörigen Views. Der Controller für die Appointments und für den Bearbeitungsdialog benötigen im Model die Appointments. Der Groupcontroller benötigt Zugriff auf die Gruppen im Model
+ 
+ \subsubsection{Model und Repository}
  
  \begin{figure}
   \includegraphics[scale=0.20]{Entwurf_KD_Models-Repo.png}
   \label{fig:Klassendiagramm_Models-Repo}
-\caption{Feinentwurf des Klassendiagramms für das Model und das Repository}
+\caption{Feinentwurf von Model und das Repository}
  \end{figure} 
 
-Im Paket Model in Abbildung \ref{fig:Klassendiagramm_Models-Repo} befinden sich die Klassen Appointment,Reservation,Booking, TimeWindow und Group. Die Klasse Appointment ist für die Termine zuständig. Die Klasse Reservation kümmert sich um Reservierungen. Booking um das Buchen von Terminen, TimeWindow um die Zeiten der Reservierungen und Buchungen und die Klasse Group um alle Belange der Gruppen, wie zum Beispiel anlegen oder löschen.
-Im Paket Repository ebenfalls in Abbildung \ref{fig:Klassendiagramm_Models-Repo} befindet sich die Klasse DbRepository. Es kümmert sich um die Verbindung zur Datenbank und gibt zum Beipiel alle Gruppen aus oder fügt Termine ein.
+Im Paket Model (siehe Abbildung \ref{fig:Klassendiagramm_Models-Repo}) befinden sich die Klassen Appointment, Reservation, Booking, TimeWindow und Group. Die Klasse Appointment ist für die Termine zuständig. Die Klasse Reservation kümmert sich um Reservierungen. Booking um das Buchen von Terminen, TimeWindow um die Zeitfenster der Termine und Buchungen und die Klasse Group um alle Belange der Gruppen, wie zum Beispiel anlegen oder löschen.
+Im Paket Repository (ebenfalls in Abbildung \ref{fig:Klassendiagramm_Models-Repo}) befindet sich die Klasse DBRepository. Sie kümmert sich um die Verbindung zur Datenbank und gibt zum Beipiel alle Gruppen aus oder fügt Termine ein.
 Wichtig zu erw\"ahnen sind die Klassen Reservation, Booking und TimeWindow. Sie besitzen eine Beziehung zu der Klasse Appointment. Dies wird Komposition genannt. Dort werden Methoden verwendet, die die entsprechenden Klassen bedingen.
 \end{document}
