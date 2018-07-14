@@ -1,0 +1,230 @@
+\section{Gesprächsprotokolle}
+
+\subsection{Anforderungsworkshop 23.04.} 
+
+Zeit: 13.20 - 14.30 
+
+\subsubsection{Anwesenheit}
+\begin{itemize}
+\item Frau Hauptmann
+\item Leo Lindhorst
+\item Oliver von Seydlitz
+\item Denis Keiling
+\item Hung Nguyen
+\item Fabian Krehnke
+\end{itemize}
+
+\subsubsection{Aufgabenstellung}
+
+\textbf{Entwicklung eines SW‐Systems zur Unterstützung der Planung von Präsentationen im Kontext des Moduls SE II.}
+\\Inhalt des Gesprächs war die Anforderungsanalyse mit dem Prüfer um die Ziele und Rahmenbedingungen des Projektes festzustellen.
+
+\paragraph{Ausgangslage}
+Aktuell wird eine Excel-Tabelle für die Organisation genutzt. Diese liegt nur der Prüferin vor. In dieser Tabelle sind die möglichen Zeiten für einen Termin festgehalten. Der Raum, in dem dieser stattfindet ist noch nicht bekannt. Termine und Terminänderungen werden über E-Mail und Telefon in Absprache mit der Prüferin ausgemacht und von ihr in die Liste eingetragen.
+
+\paragraph{Problem}
+Die Terminbelegung für Prüfungspräsentationen über E-Mail und manuelles Editieren der Excel-Tabelle ist zeitaufwändig und kann zu Fehlern führen.
+
+\paragraph{Projektziel}
+Es soll ein Software-System entwickelt werden, über das die Terminplanung geregelt wird. Es soll folgendes gewährleisten:
+\begin{itemize}
+\item Ein gleichzeitiges Buchen darf nicht möglich sein um Konflikte zu vermeiden.
+\item Die Termine müssen vom Prüfer flexibel angegeben werden können.
+\item Organisation muss dezentral sein um den Prüfer zu entlasten.
+\end{itemize}
+
+\paragraph{Akteure}
+Administrator(Prüfer), Student(Gruppe).
+
+\paragraph {Optik und Nutzung}
+Ein "Kalender" auf dem 15 Tage innerhalb der Prüfungsphase einsehbar sind. Die Tage sind mit Datum markiert und unterteilt in Doppelstunden gleich dem Stundenplan der HTW. Auf dieser Oberfläche können Termine mit 5 Zuständen eingetragen werden: \textit{gesperrt, frei, reserviert, gebucht nicht bestätigt, gebucht bestätigt}. Jeder Zustand besitzt eine eindeutige farbliche Markierung.
+\\Der Administrator trägt die Zustände \textit{gesperrt, frei, gebucht bestätigt} ein.
+\\Der Administrator kann alle Termine bzw. Zustände ändern.
+\\Der Student trägt die Zustände \textit{reserviert, gebucht nicht bestätigt} ein.
+\\Der Student kann nur \textit{reserviert} ändern und kann nur eine Eintragung aktiv haben.
+
+\subsubsection{Optional}
+\begin{itemize}
+	\item Passwortabfrage für den Prüfling
+	\item Auszug für eigenen Kalender und/oder Excel Tabelle
+\end{itemize}
+Den 02.05. für das erste Meilensteintreffen ausgemacht. 
+
+
+
+\subsection{Erstes Gruppentreffen 23.04.}
+
+Zeit: 14.30 - 15.15 
+
+\subsubsection{Anwesenheit}
+\begin{itemize}
+	\item Leo Lindhorst
+	\item Oliver von Seydlitz
+	\item Denis Keiling
+	\item Hung Nguyen
+	\item Fabian Krehnke
+\end{itemize}
+
+\subsubsection{Inhalt}
+Gruppenbesprechung des Themas und Nachbearbeitung des Anforderungsworkshops. 
+\\Einteilung der Verantwortungsbereiche des Projektes und 
+Verteilung dieser auf die Gruppenmitglieder.
+\\Absprache welche Tools für die interne Gruppenorganisationen genutzt werden. 
+
+\subsubsection{Rollen}
+\begin{itemize}
+	\item Projektleiter: Leo Lindhorst
+	\item Analyse : Oliver von Seydlitz
+	\item Entwurf (Grob-, Fein-): Denis Keiling
+	\item Implementierung: Leo Lindhorst
+	\item Test: Oliver von Seydlitz
+	\item Datenbank: Hung Nguyen
+	\item Dokumentation: Fabian Krehnke 
+	\item Qualitätssicherung: Denis Keiling 
+\end{itemize}
+
+\subsubsection{Tools}
+\begin{itemize}
+	\item GitHub und Git für Versionsverwaltung 
+	\item Kommunikation: Slack und Email
+	\item Projektmanagement: Clickup
+\end{itemize}
+
+
+
+\subsection{Erstes Meilensteintreffen 02.05.} 
+
+Zeit: 13.20 - 14.00
+
+\subsubsection{Anwesenheit}
+\begin{itemize}
+	\item Herr Zirkelbach, Ansprechpartner in diesem Termin war Herr Zirkelbach da Frau Hauptmann Krankheitsbedingt den Termin nicht wahrnehmen konnte.
+	\item Leo Lindhorst
+	\item Oliver von Seydlitz
+	\item Denis Keiling
+	\item Hung Nguyen
+	\item Fabian Krehnke
+\end{itemize}
+
+\subsubsection{Inhalt}
+Es wurden Fragen der Gruppenmitglieder über die zugeteilten Themengebiete geklärt.
+\\Vorstellung der von Oliver von Seydlitz erstellten Anforderungsanalyse für das Pflichtenheft. 
+\\Besprechung der Termine bzw Zeiträume die in dem Projekt vorhanden sein sollen.
+
+\subsubsection{Ergebnis}
+Die gesperrten Termine werden über den Zustand "deaktiviert" abgebildet. Es ist immer ein Termin als Ganzes (d.h. ein Tag) aktiviert oder deaktiviert.
+
+
+\subsection{Kurzgespräch 09.05.}
+
+Zeit:12:40 - 12:50 
+
+\subsubsection{Anwesenheit}
+\begin{itemize}
+	\item Frau Hauptmann
+	\item Leo Lindhorst
+	\item Oliver von Seydlitz
+	\item Denis Keiling
+	\item Hung Nguyen
+\end{itemize}
+
+\subsubsection{Inhalt}
+Besprechung mit Frau Hauptmann über die möglichen Zustände innerhalb der Anwendung. Der Zustand *gebucht nicht bestätigt * wurde auf Wunsch von Frau Hauptmann entfernt. 
+\\Vorschlag von Frau Hauptmann das Projekt als Web- oder Desktop-Anwendung umzusetzen.
+\\Team-intern wurde mittels einer Umfrage entschieden, das Projekt als Desktop-Anwendung zu realisieren.
+
+\subsubsection{Termine}
+Den 16.5. als Termin für das 2. Meilensteintreffen vereinbart.
+
+
+
+\subsection{Zweites Meilensteintreffen 16.05.}
+
+Zeit: 14.15 - 15.15
+
+\subsubsection{Anwesenheit}
+\begin{itemize}
+	\item Frau Hauptmann
+	\item Leo Lindhorst
+	\item Oliver von Seydlitz
+	\item Denis Keiling
+	\item Hung Nguyen
+	\item Fabian Krehnke
+\end{itemize}
+
+\subsubsection{Inhalte}
+Vorstellung des Pflichtenheftes durch Oliver und der UI-Prototypen von Leo.
+\\Besprechung der nächsten Schritte, insbesondere Grob- u. Feinentwurf.
+
+\subsubsection{Feedback}
+\paragraph{Pflichtenheft}
+Das Pflichtenheft wurde in Markdown erstellt und die enthaltenen
+Diagramme mittels Star-UML.
+\\Die Struktur des Pflichtenheftes muss überarbeitet werden damit es nachvollziehbar für den Kunden ist. Es gab bei der Vorstellung zu viele Sprünge innerhalb des Dokuments. Des Weiteren hatte das Dokument kein ausreichendes Inhaltsverzeichnis, welches ebenfalls überarbeitet werden soll.
+
+\paragraph{Diagramme}
+Bei dem Systemkontext-Diagramm hat eine Legende zur Erklärung gefehlt.
+\\Bei den Anwendungsfall-Diagrammen soll das "Include" entfernt und zwischen Gruppe löschen und Gruppe anzeigen gesetzt werden.
+
+\paragraph{UI-Protoypen}
+Die UI-Prototypen wurden mittels Affinity Designer gestaltet
+\\Diskussion über die Darstellung in Listen oder Tabellen Form.
+\\Darstellung als Liste wird beibehalten.
+\\Besprechung der farblichen Kennzeichnung der Zustände und Festlegung der Zustände \textit{nicht gebucht} als Orange und \textit{gebucht} als Schwarz.
+
+\subsubsection{Termine}
+
+25.05. Abgabe des Pflichtenheftes mit Änderungen
+
+
+\subsection{Drittes Meilensteintreffen 18.06.}
+
+Zeit: 17.30 - 19.00
+
+\subsubsection{Anwesenheit}
+\begin{itemize}
+	\item Frau Hauptmann
+	\item Leo Lindhorst
+	\item Oliver von Seydlitz
+	\item Denis Keiling
+	\item Hung Nguyen
+	\item Fabian Krehnke
+\end{itemize}
+
+\subsubsection{Inhalte} 
+
+\paragraph{Projektablaufplan}
+Vorstellung des Projektablaufplan von Leo.
+
+
+\paragraph{Datenbankentwurf}
+Vorstellung des Datenbankentwurfs von Hung. 
+
+
+\paragraph{Grob- und Fein- Entwurf}
+Software Entwurf Vorstellung/Erklärung von Denis.
+
+
+\subsubsection{Feedback}
+
+\paragraph{Projektablaufplan}
+Dieser wurde mittels Ganttproject erstellt. 
+Die Planung des Projektes war kompliziert da einige Prüfungstermine in Konflikt standen.
+Die Planung vergangener Termine ist nicht sinnvoll und führt zu inkonsistent 
+
+\paragraph{Datenbankentwurf}
+Der Entwurf wurde mittels StarUML erstellt.
+Die durchlaufende Nummerierung der Gruppen ist problematisch, da diese nicht thematisch sortierbar sind.
+\\Die Buchung ist in der Datenbank als Reservierung mit zusätzlichen Tags definiert. Diese Ähnlichkeit ist für die Überprüfung der Zustände wichtig.
+\\Frau Hauptmann hat ein Problembeispiel angebracht, dies ist nicht weiter relevant da dies dadurch gelöst ist das die Termine selbst eingetragen werden.
+\\Die Datenbank muss deutlich in der Entwicklerdokumentation beschrieben sein.
+
+\paragraph{Grob- und Fein- Entwurf}
+Der Entwurf wurde mittels StarUML erstellt.
+\\Das Klassendiagramm war zu komplex. Eine Aufspaltung bezüglich des Grobentwurfes in einzelne Diagramme ist sinnvoll um eine bessere Übersicht zu bekommen. 
+\\Das Handle Event den Java Möglichkeiten anpassen.
+
+\subsubsection{Termine}
+
+Den 04.07. als Termin für das 4. Meilensteintreffen ausgemacht.
+\\Den 16.07. als Abgabetermin für die Projektarbeit.
