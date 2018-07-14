@@ -4,6 +4,7 @@
 \usepackage{graphicx}
 \usepackage[table,x11names]{xcolor}
 
+
 \begin{document}
 
 Die Datenbank für die Applikation besteht aus vier Tabellen : Group, Reservation, Appointment und Booking.
@@ -15,6 +16,13 @@ Die Struktur der Tabellen ist in Abbildung \ref{fig:ER-Diagramm} dargestellt.
 	\caption{Datenbankentwurf}
 	\label{fig:ER-Diagramm}	
 	\end{figure}
+
+Abkürzungserläuterung
+\begin{itemize}
+\item N : NULLABALE
+\item P : PRIMARRYKEY
+\item F : FOREINGKEY
+\end{itemize}
 
 \begin{table}[h]
 \centering
@@ -31,8 +39,7 @@ Die Struktur der Tabellen ist in Abbildung \ref{fig:ER-Diagramm} dargestellt.
     \end{tabular}
 \end{table}
 
-
-In Tabelle \ref{tab:Appointment} wird die Struktur der Tabelle Appointment dargestellt. Die Tabelle Appointment speichert alle Termine. Mit dem Feld "Activated" wird gekennzeichnet, ob ein Termin deaktiviert oder aktiviert ist. Die Zustände "gebucht" und "reserviert" ergeben sich daraus, dass ein entsprechender Eintrag in "Booking" oder "Reservation" anwesend ist.
+In Tabelle \ref{tab:Appointment} wird die Struktur der Tabelle Appointment dargestellt. Die Tabelle Appointment speichert alle Termine. Mit dem Feld "Activated" wird gekennzeichnet, ob ein Termin deaktiviert oder aktiviert ist. Die Zustände "gebucht" und "reserviert" ergeben sich daraus, dass ein entsprechender Eintrag in "Booking" oder "Reservation" vorhanden ist.
 \begin{itemize}
 \item Es darf nur eine Presentation pro tag geben.
 \item Jeder Termin darf nur von einem Eintrag in der Tabelle Reservation referenziert werden. 
@@ -72,7 +79,6 @@ In Tabelle \ref{tab:Reservation} wird die Struktur der Tabelle Reservation  darg
 
 \end{itemize}
 
-
 \begin{table}[h]
 \centering
 \caption{Booking}
@@ -89,9 +95,4 @@ In Tabelle \ref{tab:Reservation} wird die Struktur der Tabelle Reservation  darg
 
 In Tabelle \ref{tab:Booking} wird die Struktur der Tabelle Booking dargestellt. Die Tabelle Booking dient als ein Speziallsfall von der Tabele Reservation. Weil jede Gruppe max. 1 Reservierung oder Buchung haben kann.
 
-
 \end{document}
-
-
-
-
