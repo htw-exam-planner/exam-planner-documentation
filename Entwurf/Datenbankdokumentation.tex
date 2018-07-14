@@ -55,7 +55,7 @@ In Tabelle \ref{tab:Appointment} wird die Struktur der Tabelle Appointment darge
     Appoinment & DATE & Der Termin, der durch die Gruppe gebucht oder reserviert ist (Fremdschlüssel auf Appointment.Date). \\ \hline
     \end{tabular}
 \end{table}
-In Tabelle \ref{tab:Reservation} wird die Struktur der Tabelle Reservation  dargestellt.  In dieser Tabelle werden sowohl Reservierungen, als auch Buchungen eingetragen. Eine Buchung ist dadurch zu erkennen, dass es zusätzlich einen entsprechenden Eintrag in Booking gibt. Der Grund für diese Art der Darstellung ist die Erleichterung der Integritätsprüfung, da jeder Termin max. eine Buchung oder Reservierung haben darf, und auch jede Gruppe max. eine Buchung oder Reservierung. Ein Eintrag in Reservation repräsentiert also eine Buchung, wenn zusätzlich ein Eintrag in Booking vorhanden ist, sonst nur eine Reservierung.
+In Tabelle \ref{tab:Reservation} wird die Struktur der Tabelle Reservation  dargestellt.  In dieser Tabelle werden sowohl Reservierungen, als auch Buchungen eingetragen. Eine Buchung ist dadurch zu erkennen, dass es zusätzlich einen entsprechenden Eintrag in Booking gibt. Der Grund für diese Art der Darstellung ist die Erleichterung der Integritätsprüfung, da jeder Termin max. eine Buchung oder Reservierung haben darf, und auch jede Gruppe max. eine Buchung oder Reservierung. Ein Eintrag in Reservation repräsentiert also eine Buchung, wenn zusätzlich ein Eintrag in Booking vorhanden ist, sonst nur eine Reservierung.Darüber hinhaus man kann die Buchung aus Datensicht als Spezialisierung der Reservierung sehen.Jede Buchung verhält sich wie eine Reservierung, aber mit zusätzlichen Eigenschaften.
 
 \begin{itemize} 
 	\item Jeder Termin kann nur einen Eintrag in Reservierung haben.
