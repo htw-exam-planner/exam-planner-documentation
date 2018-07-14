@@ -68,8 +68,9 @@ Das Klassendiagramm in Abbildung \ref{fig:Klassendiagramm_Student} zeigt die Kla
   \caption{Feinentwurf des Pakets Admin}
  \end{figure} 
 
- Die Abbildung \ref{fig:Klassendiagramm_Admin} zeigt die Klassen der Adminansicht. Es gibt vier Controller mit den dazugehörigen Views. Der Controller für die Appointments und für den Bearbeitungsdialog benötigen im Model die Appointments. Der Groupcontroller benötigt Zugriff auf die Gruppen im Model
- 
+ Die Abbildung \ref{fig:Klassendiagramm_Admin} zeigt die Klassen der Adminansicht. Es gibt vier Controller mit den dazugehörigen Views. Der Controller für die Appointments und für den Bearbeitungsdialog benötigen im Model die Appointments. Der Groupcontroller benötigt Zugriff auf die Gruppen im Model.
+ Der SetupController ist f\"ur die Erstellung der Gruppen, Verbindung zur Datenbank und dem erstellen des leeren Pr\"ufungsplans verantwortlich.Der AppointmentController verwaltet die Termine, der EditDialogController ist f\"ur die genen Zeiten des Termines oder f\"ur Eintragungen des Raumes notwednig.
+ Der GroupController ist f\"ur die Verwaltung der Gruppen zust\"andig.
  \subsubsection{Model und Repository}
  
  \begin{figure}
@@ -80,5 +81,6 @@ Das Klassendiagramm in Abbildung \ref{fig:Klassendiagramm_Student} zeigt die Kla
 
 Im Paket Model (siehe Abbildung \ref{fig:Klassendiagramm_Models-Repo}) befinden sich die Klassen Appointment, Reservation, Booking, TimeWindow und Group. Die Klasse Appointment ist für die Termine zuständig. Die Klasse Reservation kümmert sich um Reservierungen. Booking um das Buchen von Terminen, TimeWindow um die Zeitfenster der Termine und Buchungen und die Klasse Group um alle Belange der Gruppen, wie zum Beispiel anlegen oder löschen.
 Im Paket Repository (ebenfalls in Abbildung \ref{fig:Klassendiagramm_Models-Repo}) befindet sich die Klasse DBRepository. Sie kümmert sich um die Verbindung zur Datenbank und gibt zum Beipiel alle Gruppen aus oder fügt Termine ein.
+In der Datei db.properties werden die Zugangsdaten abgelegt. Dadurch ist es m\"oglich eine andere Datenbank zu w\"ahlen.
 Wichtig zu erw\"ahnen sind die Klassen Reservation, Booking und TimeWindow. Sie besitzen eine Beziehung zu der Klasse Appointment. Dies wird Komposition genannt. Dort werden Methoden verwendet, die die entsprechenden Klassen bedingen.
 \end{document}
