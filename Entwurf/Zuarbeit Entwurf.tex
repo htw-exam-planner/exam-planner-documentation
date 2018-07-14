@@ -19,11 +19,11 @@ Dabei wurde die View und der Controller für die Präsentationsschicht und das M
     Die Models erhalten die Domänendaten.Sie wird durch ihre Funktionalitäten verändert. Die Models werden von allen Paketen Start,Student und Admin ben\"otigt. Dies geht aus der Abbildung \ref{fig:Paketdiagramm_Grobentwurf} hervor.
     Durch Ver\"anderungen in den Methoden reagieren die Models auf die Anferderungen.
    \subsubsection{View}
-   Die View ist für die Darstellung der Daten und der Interaktion mit dem Nutzer zuständig, solbald der Nutzer zum Beispiel auf der Oberfläche einen Klick ausführt, wird dies sofort an den Controller weitergegeben, der wiederrum das Model kontaktiert.
+   Die Views sind für die Darstellung der Daten und der Interaktion mit dem Nutzer zuständig, solbald der Nutzer zum Beispiel auf der Oberfläche einen Klick ausführt, wird dies sofort an den Controller weitergegeben, der wiederrum das Model kontaktiert.
    Wie im Paketdiagramm in  Abbildung \ref{fig:Paketdiagramm_Grobentwurf} ersichtlich enthalten die Pakete Start,Student, Admin eine oder mehrere Views.
    Au\ss{}erdem besitzen die Views eine Abh\"angigkeit zum Model.
    \subsubsection{Controller}
-   Die Controller behandeln jeweils die Ereignisse, die von den Views ausgelöst werden. Auch die Controller ben\"otigen zwingend das Model um auf Ereignisse zu reagieren. Dies kann man sehr gut in der Abbildung \ref{fig:Paketdiagramm_Grobentwurf} im Paketdiagramm sehen.
+   Die Controller behandeln jeweils die Ereignisse, die von den Views ausgelöst werden. Alle Controller, bis auf den Controller im Paket Start ben\"otigen zwingend das Model um auf Ereignisse zu reagieren. Dies kann man sehr gut in der Abbildung \ref{fig:Paketdiagramm_Grobentwurf} im Paketdiagramm sehen.
    
    \begin{figure}
     \includegraphics[scale=0.5]{Entwurf_PD_Grobentwurf.png}
@@ -33,7 +33,7 @@ Dabei wurde die View und der Controller für die Präsentationsschicht und das M
 
   \newpage
 \section{Feinentwurf}
-Der Feinentwurf wurde zur besseren Übersicht in mehrere Klassendiagramme unterteilt. Für jede Rolle, die im Programm möglich ist, befindet sich ein Klassendiagramm.
+Der Feinentwurf wurde zur besseren Übersicht in mehrere Klassendiagramme unterteilt. Für jede Ansicht, die im Programm möglich ist, befindet sich ein Klassendiagramm.
 Davon getrennt liegt das Repository. Es wird verwendet um Objekte auf Datenbankrelationen abzubilden und Datenbankrelationen auf Objekte abzubilden. Da wir uns aus Gründen der Wartbarkeit für das MVC-Konzept entschieden haben,hat jeder Controller eine View.
 Diese kommunizieren außerdem noch mit dem Model. Dieses besitzt als alleinige Komponente den Zugang zur Datenbank. Damit ist auch hier ohne großer Aufwand ein Austausch mit lokalen Daten möglich.
 Durch diese Gestaltung der Komponenten haben wir außerdem eine bessere Wiederverwendbarkeit von Komponenten geschaffen. 
@@ -47,7 +47,7 @@ Durch diese Gestaltung der Komponenten haben wir außerdem eine bessere Wiederve
   \caption{Feinentwurf des Klassendiagramms Start}
  \end{figure} 
  
- Das Klassendiagramm in Abbildung \ref{fig:Klassendiagramm_Start} bildet den Auswahldialog des Programms ab. Hier kann ausgewählt werden, welche Rolle der Benutzer einnimmt. 
+ Das Klassendiagramm in Abbildung \ref{fig:Klassendiagramm_Start} zeigt die Klassen der Startansicht. Hier kann ausgewählt werden, welche Rolle der Benutzer einnimmt. 
  Daher gibt es hier nur eine View und einen Controller. Diese bilden die Rollenauswahl ab.
  \subsubsection{Das Paket Student}
  
