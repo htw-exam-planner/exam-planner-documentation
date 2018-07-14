@@ -32,10 +32,10 @@ Die Struktur der Tabellen ist in Abbildung \ref{fig:ER-Diagramm} dargestellt.
 \end{table}
 
 
-In Tabelle \ref{tab:Appointment} wird die Struktur der Tabelle Appointment dargestellt. Die Tabelle Appointment speichert alle Termine. Mit dem Feld "Activated" wird gekennzeichnet, ob ein Termin deaktiviert oder aktiviert ist. Die Zustände "gebucht" und "reserviert" ergeben sich daraus, dass ein entsprechender Eintrag in "Booking" oder "Reservation anwesend ist.
+In Tabelle \ref{tab:Appointment} wird die Struktur der Tabelle Appointment dargestellt. Die Tabelle Appointment speichert alle Termine. Mit dem Feld "Activated" wird gekennzeichnet, ob ein Termin deaktiviert oder aktiviert ist. Die Zustände "gebucht" und "reserviert" ergeben sich daraus, dass ein entsprechender Eintrag in "Booking" oder "Reservation" anwesend ist.
 \begin{itemize}
 \item Es darf nur eine Presentation pro tag geben.
-\item Einen Termin kann mit eine Reservierung oder gar keine ausgemacht werden, 
+\item Jeder Termin darf nur von einem Eintrag in der Tabelle Reservation referenziert werden. 
 \end{itemize}
 
 \begin{table}[h]
@@ -49,11 +49,12 @@ In Tabelle \ref{tab:Appointment} wird die Struktur der Tabelle Appointment darge
     Appoinment & DATE & Der Termin, der durch die Gruppe gebucht oder reserviert ist(Foreign key auf Appointment.Date). \\ \hline
     \end{tabular}
 \end{table}
-In Tabelle \ref{tab:Reservation} wird die Struktur der Tabelle Reservation  dargestellt.  In dieser Tabelle werden sowohl Reservierungen, als auch Buchungen eingetragen. Eine Buchung ist dadurch zu erkennen, dass es zusätzlich einen entsprechenden Eintrag in Booking gibt. Der Grund für diese Art der Darstellung ist die Erleichterung der Integritätsprüfung.
+In Tabelle \ref{tab:Reservation} wird die Struktur der Tabelle Reservation  dargestellt.  In dieser Tabelle werden sowohl Reservierungen, als auch Buchungen eingetragen. Eine Buchung ist dadurch zu erkennen, dass es zusätzlich einen entsprechenden Eintrag in Booking gibt. Der Grund für diese Art der Darstellung ist die Erleichterung der Integritätsprüfung dass jeder Termin max. eine Buchung oder Reservierung (egal welches) haben darf, und auch jede Gruppe max. 1 Buchung oder Reservierung.
 
 \begin{itemize} 
-\item Terminsreservierung kann nur einen Termin( Appointment) haben.
-\item Terminsreservierung darf nur von einer Gruppe ausgemacht werden.
+\item Jeder Termin kann nur einen Eintrag in Reservierung haben.
+\item Jede Gruppe darf nur einen Eintrag in Reservierung haben.
+\item Einen Termin kann mit einer Reservierung oder gar keine ausgemacht werden.
 \end{itemize}
 \begin{table}[h]
 \centering
