@@ -8,8 +8,8 @@
  \caption{Paketdiagramm Grobentwurf}
 \end{figure}
 
-Der Grobentwurf (dargestellt in Abbildung \ref{fig:Paketdiagramm_Grobentwurf}) vereint mehrere Architekturmuster. Zum einen kann die Struktur als Repository-Architektur angesehen werden, da es verschiedene Ansichten gibt, die alle das gleiche Repository (welches im gleichnamigen Paket realisiert wird) verwenden um auf eine gemeinsame Datenbasis zuzugreifen.
-Betrachtet man eine einzelne Ansicht, so kann diese wiederum als 3-Schichtenarchitektur gesehen werden, in der das Repository der Datenhaltungsschicht entspricht, die Models der Logikschicht und Views und Presenter der Präsentationsschicht. Die oberen beiden Schichten wiederum, in denen sich Models, Views und Presenter befinden, wurden nach dem Model-View-Presenter-Entwurfsmuster gestaltet.
+Der Grobentwurf (dargestellt in Abbildung \ref{fig:Paketdiagramm_Grobentwurf}) vereint mehrere Architekturmuster. Zum einen kann die Struktur als Repository-Architektur angesehen werden, da es verschiedene Ansichten gibt, die alle auf die gleiche Datenbasis zugreifen, das Repository. Die Schnittstelle zwischen den Clients und der Datenbasis bildet das Paket Repository.
+Betrachtet man einen einzelnen Client, so kann dessen Struktur wiederum als 3-Schichtenarchitektur gesehen werden, in der das Repository-Paket der Datenhaltungsschicht entspricht, die Models der Logikschicht und Views und Presenter der Präsentationsschicht. Die oberen beiden Schichten wiederum, in denen sich Models, Views und Presenter befinden, wurden nach dem Model-View-Presenter-Entwurfsmuster gestaltet.
 
 \subsection{Darstellungsschicht}
 Die Darstellungsschicht wurde in die 4 Pakete Start, Student, Admin und Shared unterteilt. Jedes dieser Pakete enthält als Unterpakete die Pakete Views und Presenters, in welchen jeweils die Views und Presenter entsprechend ihren Rollen des Model-View-Presenter-Musters (MVP) enthalten sind. Die Aufgaben der Pakete sind
@@ -70,6 +70,7 @@ Diejenigen Presenter, die auf die Daten der Models zugreifen, haben jeweils eine
  Die Main-Ansicht besitzt eine (Admin-)Appointments-Ansicht zum Anzeigen der Termine und eine AdminGroups zum Anzeigen der Gruppen.
  Für die einzelnen Einträge gibt es jeweils die AdminAppointmentEntry und GroupEntry.
  Gerade an der Aufteilung in mehrere Views in der Adminansicht erkennt man sehr gut das Kompositum-Entwurfsmuster: Statt einen einzigen View mit Presenter zu bauen, wurden einzelne, selbstständige parametrisierbare Komponenten geschaffen, die sich leicht wiederverwenden lassen.
+ Diese Komponenten sind außerdem in sich gekapselt, da sie ihre dazugehörige View selbst laden und können so an beliebiger Stelle ohne Wissen über die Interna der View wiederverwendet werden.
  Schließlich gibt es noch den EditDialog, der das Dialogfenster zum Bearbeiten eines Termins realisiert.
  Wie in der Studentenansicht besitzen die Presenter, die auf die Daten des Models zugreifen, zu den jeweiligen Models Assoziationsbeziehungen.
 
