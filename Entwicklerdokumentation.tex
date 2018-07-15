@@ -1,7 +1,16 @@
-\documentclass{scrartcl}
-
+\documentclass[a4paper,10pt]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage{tocbibind}
+\usepackage{xcolor}
+\usepackage{hyperref}
 \usepackage[ngerman]{babel}
+\usepackage{graphicx}
+
+%For smaller margins
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
 
 \begin{document}
+  \input{Entwurf/entwurfsdoku}
+  
   \input{Testdokumentation/testdoku}
 \end{document}

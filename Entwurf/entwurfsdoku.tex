@@ -1,17 +1,9 @@
-\documentclass[a4paper,10pt]{scrartcl}
-\usepackage[utf8]{inputenc}
-\usepackage{tocbibind}
-\usepackage{xcolor}
-\usepackage{hyperref}
-\usepackage[ngerman]{babel}
-\usepackage{graphicx}
-\graphicspath{ {./exports/png/} }
+\graphicspath{ {Entwurf/exports/png/} }
 
 
-\begin{document}
 \section{Grobentwurf}
 \begin{figure}
- \includegraphics[scale=0.5]{Entwurf_PD_Grobentwurf.png}
+ \includegraphics[width=\textwidth]{Entwurf_PD_Grobentwurf.png}
  \label{fig:Paketdiagramm_Grobentwurf}
  \caption{Paketdiagramm Grobentwurf}
 \end{figure}
@@ -45,16 +37,16 @@ In den Klassendiagrammen werden abstrakte Methoden \textit{kursiv}, statische Me
 
  \subsection{Das Paket Start}
  \begin{figure}
-  \includegraphics[scale=0.5]{Entwurf_KD_Feinentwurf_Start.png}
+  \includegraphics[width=\textwidth]{Entwurf_KD_Feinentwurf_Start.png}
   \label{fig:Klassendiagramm_Start}
   \caption{Feinentwurf des Pakets Start}
  \end{figure}
 
  Das Klassendiagramm in Abbildung \ref{fig:Klassendiagramm_Start} zeigt die Klassen der Startansicht. Es besitzt nur einen Presenter und einen View, mit denen ausgewählt werden kann, welche Rolle der Benutzer einnimmt. Je nach Wahl des Nutzers wird vom Controller entweder die Admin-Main-Ansicht oder die Student-GroupSelection-Ansicht geladen.
 
- \subsubsection{Das Paket Student}
+ \subsection{Das Paket Student}
  \begin{figure}
-    \includegraphics[scale=0.25]{Entwurf_KD_Feinentwurf_Student.png}
+    \includegraphics[width=\textwidth]{Entwurf_KD_Feinentwurf_Student.png}
     \label{fig:Klassendiagramm_Student}
     \caption{Feinentwurf des Pakets Student}
  \end{figure}
@@ -68,7 +60,7 @@ Diejenigen Presenter, die auf die Daten der Models zugreifen, haben jeweils eine
 
  \subsection{Das Paket Admin}
  \begin{figure}
-  \includegraphics[scale=0.25]{Entwurf_KD_Feinentwurf_Admin.png}
+  \includegraphics[width=\textwidth]{Entwurf_KD_Feinentwurf_Admin.png}
   \label{fig:Klassendiagramm_Admin}
   \caption{Feinentwurf des Pakets Admin}
  \end{figure}
@@ -82,7 +74,7 @@ Diejenigen Presenter, die auf die Daten der Models zugreifen, haben jeweils eine
 
  \subsection{Das Paket Shared}
  \begin{figure}
-  \includegraphics[scale=0.25]{Entwurf_KD_Feinentwurf_Shared.png}
+  \includegraphics[width=\textwidth]{Entwurf_KD_Feinentwurf_Shared.png}
   \label{fig:Klassendiagramm_Shared}
   \caption{Feinentwurf des Pakets Shared}
  \end{figure}
@@ -91,9 +83,9 @@ Diejenigen Presenter, die auf die Daten der Models zugreifen, haben jeweils eine
  Um die Gemeinsamkeiten zu realisieren, gibt es bei den Presenters die Klassen Appointments (zur Anzeige aller Termine) und AppointmentEntry (zur Anzeige eines Termins), die die entsprechenden Klassen in Admin und Student generalisieren.
  Bei den Views wird der View Appointments von beiden vewendet, Admin und Student haben nur für den AppointmentEntry jeweils eine eigene Implementierung.
 
- \subsubsection{Model und Repository}
+ \subsection{Model und Repository}
  \begin{figure}
-  \includegraphics[scale=0.20]{Entwurf_KD_Models-Repo.png}
+  \includegraphics[width=\textwidth]{Entwurf_KD_Models-Repo.png}
   \label{fig:Klassendiagramm_Models-Repo}
 \caption{Feinentwurf von Model und das Repository}
  \end{figure}
@@ -105,5 +97,3 @@ Alle Models haben eine Assoziation zur Klasse DBRepository, da diese die Speiche
 
 Im Paket Repository (ebenfalls in Abbildung \ref{fig:Klassendiagramm_Models-Repo}) befindet sich die Klasse DBRepository. Sie holt die Daten aus der Datenbank und wandelt diese in Objekte der Models um, ebenso speichert sie Änderung in den Models wieder in der Datenbank. \\
 Die Zugangsdaten zur Datenbank werden in der Datei db.properties abgelegt, welche nicht in der Versionsverwaltung versioniert wird. Durch Austausch dieser Datei kann einfach und flexibel eine andere Datenbank verwendet werden.
-
-\end{document}
