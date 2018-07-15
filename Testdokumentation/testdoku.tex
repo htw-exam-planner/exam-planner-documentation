@@ -58,7 +58,7 @@ Für die meisten Systemtests wurde der Testdatensatz der Tabellen \ref{tab:testA
 \subsubsection{Tests des Teilsystems Termine anzeigen und Buchen am 13.7.}
 \testReport{13.7.2018 13:00}{Oliver von Seydlitz}{
   \testLogInGroup
-}{Terminübersicht}{Test uneingeschränkt bestanden}
+}{Terminübersicht}{Test bestanden}
 
 \testReport{13.7.2018 13:00}{Oliver von Seydlitz}{
   \testReserveDeactivated
@@ -115,6 +115,163 @@ Nach Behebung dieses Fehlers wurden dann weitere Tests zum Anwendungsfall "`Term
 {Defekt. Die Buchung anderer Termine sollte möglich sein, ohne die Reservierung stornieren zu müssen. Die Oberfläche sollte angepasst werden.}
 
 \testReport{13.7.2018 13:30}{Oliver von Seydlitz}{
+  \testBookReservedByOther
+}{Oberfläche lässt Buchung eines durch eine andere Gruppe reservierten Termins nicht zu}
+{Test bestanden}
+
+\testReport{13.7.2018 18:00}{Oliver von Seydlitz}{
+  \testReserve
+}{Termin 20.7. ist von Gruppe reserviert, Reservierungstext nun vollkommen sichtbar}{Test bestanden}
+
+\testReport{13.7.2018 18:00}{Oliver von Seydlitz}{
+  \testBookGroupHasReservation
+}{Termin 25.7. ist durch Gruppe 4 gebucht, die Reservierung ist nicht mehr vorhanden}
+{Test bestanden}
+
+\subsubsection{Systemtests am 15. 7. 2018}
+
+\testReport{15.7.2018 16:20}{Oliver von Seydlitz}{
+  \testGenerate
+}{15 freie Termine mit Zeitfenster 8:30-16:40, 10 Gruppen}
+{Defekt: Startzeit sollte 7:30 sein, sollte behoben werden}
+
+\testReport{15.7.2018 16:20}{Oliver von Seydlitz}{
+  \testGenerateNotMonday
+}{Fehlermeldung}
+{Test bestanden}
+
+\testReport{15.7.2018 16:20}{Oliver von Seydlitz}{
+  \testGenerateZeroGroups
+}{Fehlermeldung}
+{Test bestanden}
+
+\testReport{15.7.2018 16:20}{Oliver von Seydlitz}{
+  \testFreeDeactivated
+}{Termin 9.7. ist frei}
+{Test bestanden}
+
+\testReport{15.7.2018 16:20}{Oliver von Seydlitz}{
+  \testFreeBooked
+}{Termin 9.7. hat Zustand frei, die Buchung ist nicht mehr vorhanden}
+{Test bestanden}
+
+\testReport{15.7.2018 16:20}{Oliver von Seydlitz}{
+  \testDeactivateFree
+}{Termin 10.7. ist deaktiviert}
+{Test bestanden}
+
+\testReport{15.7.2018 16:20}{Oliver von Seydlitz}{
+  \testDeactivateReserved
+}{Termin ist deaktiviert, die Reservierung ist nicht mehr vorhanden}
+{Test bestanden}
+
+\testReport{15.7.2018 16:20}{Oliver von Seydlitz}{
+  \testSetTimeWindow
+}{Termin mit neuem Zeitfenster 08:00-12:00}
+{Test bestanden}
+
+\testReport{15.7.2018 16:20}{Oliver von Seydlitz}{
+  \testSetTimeWindowInvalid
+}{Fehlermeldung}
+{Test bestanden}
+
+\testReport{15.7.2018 16:30}{Oliver von Seydlitz}{
+  \testSetNote
+}{Termin hat neue Bemerkung "`Hier könnte Ihre Werbung stehen"'}
+{Test bestanden}
+
+\testReport{15.7.2018 16:30}{Oliver von Seydlitz}{
+  \testSetBookingRoomTime
+}{Termin mit Endzeit und Raum wie festgelegt}
+{Test bestanden}
+
+\testReport{15.7.2018 16:30}{Oliver von Seydlitz}{
+  \testSetBookingRoomTimeNotBooked
+}{Oberläche lässt Bearbeitung der Buchung nur zu, wenn Buchung vorhanden}
+{Test bestanden}
+
+\testReport{15.7.2018 16:30}{Oliver von Seydlitz}{
+  \testShowAppointments
+}{Übersicht der Termine}
+{Test bestanden}
+
+\testReport{15.7.2018 16:30}{Oliver von Seydlitz}{
+  \testViewGroups
+}{Übersicht der Gruppen}
+{Test bestanden}
+
+\testReport{15.7.2018 16:30}{Oliver von Seydlitz}{
+  \testCreateGroup
+}{Neue Gruppe mit Nummer 8 angelegt}
+{Test bestanden}
+
+\testReport{15.7.2018 16:30}{Oliver von Seydlitz}{
+  \testDeleteGroup
+}{Gruppe ist nicht mehr vorhanden, Buchung am 16.7. nicht mehr vorhanden}
+{Test bestanden}
+
+\testReport{15.7.2018 16:35}{Oliver von Seydlitz}{
+  \testLogInGroup
+}{Terminübersicht}
+{Test bestanden}
+
+\testReport{15.7.2018 16:35}{Oliver von Seydlitz}{
+  \testReserveDeactivated
+}{Oberfläche lässt Reservierung eines deaktivieren Termins nicht zu}
+{Test bestanden}
+
+\testReport{15.7.2018 16:35}{Oliver von Seydlitz}{
+  \testReserveBooked
+}{Oberfläche lässt Reservierung eines gebuchten Termins nicht zu}
+{Test bestanden}
+
+\testReport{15.7.2018 16:40}{Oliver von Seydlitz}{
+  \testReserve
+}{Termin 20.7. ist von Gruppe 6 reserviert}
+{Test bestanden}
+
+\testReport{15.7.2018 16:40}{Oliver von Seydlitz}{
+  \testReserveGroupAlreadyBooked
+}{Termin 20.7. ist von Gruppe 6 reserviert}
+{Test bestanden}
+
+%%%%%%%%%%%%%%%%
+\testReport{15.7.2018 16:40}{Oliver von Seydlitz}{
+  \testReserveGroupAlreadyBooked
+}{Oberfläche lässt Reservierung nicht zu, wenn bereits gebucht ist}
+{Test bestanden}
+
+\testReport{15.7.2018 16:40}{Oliver von Seydlitz}{
+  \testCancelReservation
+}{Termin ist frei, Gruppe 2 hat keine Reservierung mehr}
+{Test bestanden}
+
+\testReport{15.7.2018 16:40}{Oliver von Seydlitz}{
+  \testCancelOtherReservation
+}{Oberfläche lässt Stornierung nicht zu, wenn der Termin durch andere Gruppe reserviert ist}
+{Test bestanden}
+
+\testReport{15.7.2018 16:40}{Oliver von Seydlitz}{
+  \testCancelReservationNoReservationPresent
+}{Oberfläche lässt Stornierung nicht zu, wenn der nicht reserviert ist}
+{Test bestanden}
+
+\testReport{15.7.2018 16:45}{Oliver von Seydlitz}{
+  \testBook
+}{Termin ist durch Gruppe gebucht mit gewünschter Startzeit}
+{Test bestanden}
+
+\testReport{15.7.2018 16:50}{Oliver von Seydlitz}{
+  \testBookGroupBookedAlready
+}{Oberfläche lässt Buchung nicht zu, wenn Gruppe bereits gebucht hat}
+{Test bestanden}
+
+\testReport{15.7.2018 16:50}{Oliver von Seydlitz}{
+  \testBookGroupHasReservation
+}{Termin ist durch Gruppe gebucht, Reservierung ist nicht mehr vorhanden}
+{Test bestanden}
+
+\testReport{15.7.2018 16:50}{Oliver von Seydlitz}{
   \testBookReservedByOther
 }{Oberfläche lässt Buchung eines durch eine andere Gruppe reservierten Termins nicht zu}
 {Test bestanden}
