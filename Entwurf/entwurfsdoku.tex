@@ -8,8 +8,8 @@
  \caption{Paketdiagramm Grobentwurf}
 \end{figure}
 
-Der Grobentwurf (dargestellt in Abbildung \ref{fig:Paketdiagramm_Grobentwurf}) wurde nach der 3-Schichtenarchitektur aufgebaut. Genauer gesagt wurde innerhalb dieser das Model-View-Presenter Muster verwendet.
-Dabei bilden die Views und die Presenter die Präsentationsschicht und das Model die Logikschicht. Die Datenhaltungsschicht der 3-Schichtenarchitektur entspricht dem Paket Repository.
+Der Grobentwurf (dargestellt in Abbildung \ref{fig:Paketdiagramm_Grobentwurf}) vereint mehrere Architekturmuster. Zum einen kann die Struktur als Repository-Architektur angesehen werden, da es verschiedene Ansichten gibt, die alle das gleiche Repository (welches im gleichnamigen Paket realisiert wird) verwenden um auf eine gemeinsame Datenbasis zuzugreifen.
+Betrachtet man eine einzelne Ansicht, so kann diese wiederum als 3-Schichtenarchitektur gesehen werden, in der das Repository der Datenhaltungsschicht entspricht, die Models der Logikschicht und Views und Presenter der Präsentationsschicht. Die oberen beiden Schichten wiederum, in denen sich Models, Views und Presenter befinden, wurden nach dem Model-View-Presenter-Entwurfsmuster gestaltet.
 
 \subsection{Darstellungsschicht}
 Die Darstellungsschicht wurde in die 4 Pakete Start, Student, Admin und Shared unterteilt. Jedes dieser Pakete enthält als Unterpakete die Pakete Views und Presenters, in welchen jeweils die Views und Presenter entsprechend ihren Rollen des Model-View-Presenter-Musters (MVP) enthalten sind. Die Aufgaben der Pakete sind
