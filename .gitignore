@@ -5,3 +5,5 @@
 **/*.synctex.gz
 **/*.xdv
 **/*.pdf
+**/*.lof
+**/*.toc
