@@ -8,9 +8,12 @@
 
 \usepackage[utf8]{inputenc}
 
+%so that figrues go where they should
+\usepackage{float}
+
 \begin{document}
 
-\section {Projekt Management}
+\section{Projekt Management}
 Der folgende Abschnitt dokumentiert Entscheidungen und Planungen des Projektmanagements.
 
 \subsection{Projektziel}
@@ -59,14 +62,14 @@ Für das Projekt wurde sich für ein Vorgehen nach dem "Wasserfallmodell mit Rü
 \item Grundlegende Fehler in den einzelnen Stufen sind aufgrund der kleinen Projekt- und Problemgröße ausreichend unwahrscheinlich, kleine Fehler können durch das Konzept der Rückkopplung korrigiert werden.
 \end{itemize}
 
-\begin{figure}[h]
+\begin{figure}[H]
 	\includegraphics[width=\textwidth]{Bilder/wasserwrueck}
 	\caption{Wasserfallmodell mit Rückkopplungen}
 	\label{fig:wasserwrueck}
 \end{figure}
 
 \subsection{Projektrollen}
-Für das Projekt wurden verschiedene Rollen/Verantwortungsbereiche identifiziert und den Mitgliedern des Projektteams zugeordnet. Die Zuordnung ist in Tabelle \ref{tab:Projektrollen} einsehbar. Die entsprechenden Aufgabengebiete werde von verschiedenen Team-Mitgliedern arbeitsteilig 
+Für das Projekt wurden verschiedene Rollen/Verantwortungsbereiche identifiziert und den Mitgliedern des Projektteams zugeordnet. Die Zuordnung ist in Tabelle \ref{tab:Projektrollen} einsehbar. Die entsprechenden Aufgabengebiete werde von verschiedenen Team-Mitgliedern arbeitsteilig
 
 \begin{table}[h]
 	\begin{tabular}{l|l}
@@ -123,7 +126,7 @@ Um die Team-Arbeit zu organisieren, wurden die folgenden Techniken und Methoden 
 \subsubsection{Aufgabenverwaltung}
 Um die ausstehenden Aufgaben, die Verantwortlichen Team-Mitglieder und den Abarbeitungszustand transparent und nachvollziehbar zu machen, wurde ein Aufgabenmanagement-System verwendet. Dazu wurde der Dienst ClickUp (\href{https://clickup.com}{https://clickup.com}) verwendet. Dort können Arbeitspakete als "Tickets" angelegt werden. Team-Mitgliedern die diese Aufgabe übernehmen, kann dieses Paket zugewiesen werden und die können den Abarbeitungszustand auf einem "Aufgaben-Board" sichtbar machen. Dies ist in Abbildung \ref{fig:clickup} exemplarisch dargestellt.
 
-\begin{figure}[h]
+\begin{figure}[H]
 	\includegraphics[width=\textwidth]{Bilder/clickup}
 	\caption{Aufgaben-Board in ClickUp}
 	\label{fig:clickup}
@@ -132,7 +135,7 @@ Um die ausstehenden Aufgaben, die Verantwortlichen Team-Mitglieder und den Abarb
 \subsubsection{Teamkommunikation}
 Damit sich alle Mitglieder einfach untereinander abstimmen können, ist es notwendig eine zentrale Kommunikationslösung einzusetzen. Dazu wurde sich auf den Dienst Slack (\href{https://slack.com/}{https://slack.com/}) verwendet. Der Dienst stellt den Team-Mitgliedern Chat-Räume zur Verfügung, sowohl um private und direkt mit einer einzelnen Person zu kommunizieren, als auch um innerhalb einer Interessengruppe zu kommunizieren. Dies ist in Abbildung \ref{fig:slack} zu erkennen.
 
-\begin{figure}[h]
+\begin{figure}[H]
 	\includegraphics[width=\textwidth]{Bilder/slack}
 	\caption{Chat-Raum in Slack}
 	\label{fig:slack}
@@ -141,7 +144,7 @@ Damit sich alle Mitglieder einfach untereinander abstimmen können, ist es notwe
 \subsubsection{Verteilte Quellcode & Dokumentenbearbeitung}
 Um Arbeitsteilig am Produkt und den Projekt-Dokumenten arbeiten zu können, benötigt es eine zentrale Plattform um diese Daten zu verwalten und zu bearbeiten. Dazu wurde für auf die Verwendung von Git als Versionskontroll-System, sowie den Dienst GitHub (\href{https://github.com/}{https://github.com/}) als zentrale Quellcodeverwaltungsplattform entschieden. Sowohl der Quellcode des Produktes, als auch die Projektdokumente in entsprechenden Text-Formaten (Markdown oder Latex) werden in verschiedenen GitHub Repositories verwaltet und können dort von allen Team-Mitgliedern bearbeitet und begutachtet werden. Um die Qualitätsanforderungen sicherzustellen, ist es notwendig Änderungen an den Projektdokumenten und dem Quellcode einer Prüfung durch andere Team-Mitglieder zu unterziehen. Der Pull Request Mechanismus von GitHub bietet dafür einen einfachen und effizienten Weg. Dies ist in Abbildung \ref{fig:github} exemplarisch dargestellt.
 
-\begin{figure}[h]
+\begin{figure}[H]
 	\includegraphics[width=\textwidth]{Bilder/github}
 	\caption{Pull Request in GitHub}
 	\label{fig:github}
@@ -149,7 +152,7 @@ Um Arbeitsteilig am Produkt und den Projekt-Dokumenten arbeiten zu können, ben�
 
 \subsubsection{Projektablaufplan}
 Der Projektablaufplan, sowie der Ressourcenplan wurde nicht zu Beginn des Projektes, sondern erst am 18.06.2018 erstellt. Zum Zwecke der Dokumentation und um die ausstehenden Arbeiten in einen Kontext setzen zu können, wurden die bis zu diesem Zeitpunkt geschehenen Arbeiten anhand bestehender Arbeitsartefakte und Aufzeichnungen rekonstruiert und in den Projektablaufplan eingetragen. Ab dem 18.06.2018 wurde dann ein Projektablaufplan und ein Ressourcenplan als Gantt-Chart wie in Abbildung \ref{fig:projektablaufplan} erstellt. Der vollständige Projektablaufplan, sowie Ressourcenplan befindet sich im Anhang unter Abschnitt \ref{sec:projektablaufplan}.
-\begin{figure}[h]
+\begin{figure}[H]
 	\includegraphics[width=\textwidth]{Bilder/projektablaufplan}
 	\caption{Projektablaufplan}
 	\label{fig:projektablaufplan}
