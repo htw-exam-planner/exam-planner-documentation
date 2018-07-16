@@ -88,7 +88,7 @@ Diejenigen Presenter, die auf die Daten der Models zugreifen, haben jeweils eine
 
  Die Abbildung \ref{fig:Klassendiagramm_Shared} zeigt die Klassen, die sowohl von der Studentenansicht als auch von der Adminansicht verwendet werden, da es in beiden eine Terminansicht gibt, die sich jedoch bei Adminstrator und Student in kleinen Punkten unterscheidet.
  Um die Gemeinsamkeiten zu realisieren, gibt es bei den Presenters die Klassen Appointments (zur Anzeige aller Termine) und AppointmentEntry (zur Anzeige eines Termins), die die entsprechenden Klassen in Admin und Student generalisieren.
- Um in Admin- und Studentenansicht die verschiedenen AppointmentEntry verwenden zu können, und trotzdem zur Anzeige nur die eine Methode der generalisierten Appointments-Klasse zu verwenden, wurde das Factory-Muster verwendet: die in den spezialisierten Klassen implementierte Methode createAppointmentEntry liefert das jeweilige AppointmentEntry.
+ Um in Admin- und Studentenansicht die verschiedenen AppointmentEntry verwenden zu können, und trotzdem zur Anzeige nur die eine Methode der generalisierten Appointments-Klasse zu verwenden, wurde das Factory-Method-Muster verwendet: die in den spezialisierten Klassen implementierte Methode createAppointmentEntry liefert das jeweilige AppointmentEntry.
  Bei den Views wird der View Appointments von beiden vewendet, Admin und Student haben nur für den AppointmentEntry jeweils eine eigene Implementierung.
 
  \subsection{Model und Repository}
