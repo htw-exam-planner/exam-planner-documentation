@@ -130,20 +130,20 @@
   {Übersicht der Gruppen}
 }
 
-\newcommand{\testCreateGroup}{
-\testCase{Teilsystem Gruppen verwalten}
-  {Gruppe anlegen}
-  {}
-  {Gruppen des Testdatensatzes vorhanden}
-  {Neue Gruppe mit Nummer 8 angelegt}
-}
-
 \newcommand{\testDeleteGroup}{
 \testCase{Teilsystem Gruppen verwalten}
   {Gruppe löschen}
   {Gruppe 3}
   {Gruppe 3 hat Termin 16.7. gebucht}
   {Gruppe ist nicht mehr vorhanden, Buchung am 16.7. nicht mehr vorhanden}
+}
+
+\newcommand{\testCreateGroup}{
+\testCase{Teilsystem Gruppen verwalten}
+  {Gruppe anlegen}
+  {}
+  {Gruppen des Testdatensatzes vorhanden, Gruppe 3 ist gelöscht}
+  {Neue Gruppe mit Nummer 8 angelegt}
 }
 
 \newcommand{\testLogInGroup}{
@@ -237,8 +237,8 @@
 \newcommand{\testBookInvalidStartTime}{
 \testCase{Teilsystem Termine anzeigen und buchen}
   {Termin buchen}
-  {Termin 26.7. aus Testdatensatz, Startzeit 09:00}
-  {Startzeit ist außerhalb des Zeitfensters, angemeldete Gruppe  hat noch nicht gebucht}
+  {Termin 26.7. aus Testdatensatz, Startzeit 07:00}
+  {Startzeit ist außerhalb des Zeitfensters, angemeldete Gruppe 6 hat noch nicht gebucht}
   {Fehlermeldung, da Startzeit nicht in Zeitfenster}
 }
 
@@ -248,4 +248,12 @@
   {Termin 12.7. aus Testdatensatz, Startzeit 09:00}
   {Angemeldet als Gruppe 7, Termin ist durch Gruppe 2 reserviert}
   {Fehlermeldung, da durch andere Gruppe reserviert}
+}
+
+\newcommand{\testCreateGroupAndBook}{
+\testCase{Teilsysteme Termine anzeigen und buchen und Termine verwalten}
+  {Gruppe anlegen und Termin buchen}
+  {Termin 26.7. aus Testdatensatz, Startzeit 09:00}
+  {Angemeldet als neu angelegte Gruppe}
+  {Termin ist gebucht}
 }
