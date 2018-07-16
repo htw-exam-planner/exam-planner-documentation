@@ -2,8 +2,9 @@
 
 
 \section{Grobentwurf}
+\subsection{Systemarchitektur}
 \begin{figure}[H]
- \includegraphics[width=\textwidth]{Entwurf_DD_Architektur.png}
+ \includegraphics[width=0.75\textwidth]{Entwurf_DD_Architektur.png}
  \label{fig:Deployment}
  \caption{Verteilungsdiagramm}
 \end{figure}
@@ -13,12 +14,14 @@
  \caption{Paketdiagramm Grobentwurf}
 \end{figure}
 
-Die Architektur des Systems ist eine Repository-Architektur, dargestellt im Verteilungsdiagramm \ref{fig:Deployment}. Dabei dient die Datenbank auf dem HTW-Server als zentrales Repository zur Datenhaltung, das von beliebig vielen Clients (die sich auf dem Nutzer-PC befinden) verwendet wird. Durch diese Architektur wird die Verantwortung für technologiespezifische Datenhaltungsaufgaben aus der Logikschicht herausgelöst und isoliert implementiert.
-Die Architektur eines einzelnen Clients (siehe Abbildung \ref{fig:Paketdiagramm_Grobentwurf} ist eine 3-Schichtenarchitektur, in der das Repository-Paket der Datenhaltungsschicht entspricht, indem es die Schnittstelle zwischen Client und Repository bildet. Die Models bilden die Logikschicht und die Views und Presenter bilden die Präsentationsschicht. Die oberen beiden Schichten wiederum, in denen sich Models, Views und Presenter befinden, wurden nach dem Model-View-Presenter-Entwurfsmuster gestaltet.
+Die Architektur des Systems ist eine Repository-Architektur, dargestellt im Verteilungsdiagramm \ref{fig:Deployment}. Dabei dient die Datenbank auf dem HTW-Server als zentrales Repository zur Datenhaltung, das von beliebig vielen Clients (die sich auf dem Nutzer-PC befinden) verwendet wird.
+
+\subsection{Architektur Desktop Client}
+Die Architektur eines einzelnen Clients (siehe Abbildung \ref{fig:Paketdiagramm_Grobentwurf} ist eine 3-Schichtenarchitektur, in der das Repository-Paket der Datenhaltungsschicht entspricht, indem es die Schnittstelle zwischen Client und Repository bildet. Durch diese Architektur wird die Verantwortung für technologiespezifische Datenhaltungsaufgaben aus der Logikschicht herausgelöst und isoliert implementiert. Die Models bilden die Logikschicht und die Views und Presenter bilden die Präsentationsschicht. Die oberen beiden Schichten wiederum, in denen sich Models, Views und Presenter befinden, wurden nach dem Model-View-Presenter-Entwurfsmuster gestaltet.
 
 Für das Model-View-Presenter-Muster haben wir uns entschieden, da dadurch die Models technologieunabhängig und isoliert zur Darstellungsschicht sind. Des Weiteren sind die Views passiv und unabhängig von weiteren Anwendungsinhalten, sie dienen allein zur Darstellung und werden von außen mit Daten versorgt.
 
-\subsection{Darstellungsschicht}
+\subsubsection{Darstellungsschicht}
 Die Darstellungsschicht wurde in die 4 Pakete Start, Student, Admin und Shared unterteilt. Jedes dieser Pakete enthält als Unterpakete die Pakete Views und Presenters, in welchen jeweils die Views und Presenter entsprechend ihren Rollen des Model-View-Presenter-Musters (MVP) enthalten sind. Die Aufgaben der Pakete sind
 
 \paragraph{Start} enthält den View und Presenter der Startansicht, in der der Benutzer wählt, ob er die Applikation als Adminstrator oder Student verwendet.
@@ -30,10 +33,10 @@ Die Views und Presenter haben dem MVP-Muster entsprechend folgende Aufgaben:
 \paragraph{Views} zeigen die Daten an und sind für die Interaktion mit dem Nutzer zuständig. Sie erhalten die Daten nicht direkt vom Model, sondern der jeweilige Presenter liefert diese. Vom Nutzer ausgelöste Ereignisse werden ebenfalls an den Presenter weitergeleitet, der die nötigen Aktionen ausführt. Alle Views in diesem Projekt wurden nicht über gewöhnliche Klassen realisiert, sondern wurden mit FXML – der Beschreibungssprache von JavaFX – beschrieben.
 \paragraph{Presenter} kommunizieren sowohl mit dem Model als auch mit ihrem dazugehörigen View. Sie holen die Daten aus dem Model und liefern sie dann zur Anzeige an den View. Vom View erhalten sie die Nutzerereignisse und reagieren auf diese, indem sie bspw. das Model manipulieren oder die View aktualisieren.
 
-\subsection{Logikschicht – Models}
+\subsubsection{Logikschicht – Models}
 Die Logikschicht wird durch das Paket Models übernommen. Es enthält alle Klassen, die die Domänendaten repräsentieren. Diese Klassen enthalten sowohl die Daten der Domänenobjekte (in diesem Fall z.B. Termine), als auch Methoden um diese Daten zu manipulieren, entsprechend dem fachlichen Modell. Zur persistenten Speicherung der Daten kommunizieren die Models mit der Datenhaltungsschicht.
 
-\subsection{Datenhaltungsschicht}
+\subsubsection{Datenhaltungsschicht}
 Die Datenhaltungsschicht wird durch das Paket Repository realisiert. Es enthält die Klasse, die für die Verbindung zur Datenbank zustädnig ist und die Objekte des Domänenmodells auf Datenbankrelationen abbildet und umgekehrt. Der Grund für die Benennung "`Repository"' ist, dass das Paket ein Stück weit die Rolle des Repository im gleichnamigen Architekturmuster übernimmt, da es die Daten verwaltet, die von verschiedenen Komponenten (nämlich Adminstratoransicht und Studentenansicht) verwendet werden.
 
 \section{Feinentwurf}
