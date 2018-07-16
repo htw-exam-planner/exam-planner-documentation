@@ -1,20 +1,14 @@
-\documentclass[10pt,a4paper]{article}
-\usepackage[utf8]{inputenc}
-\usepackage[german]{babel}
-\usepackage{graphicx}
-\usepackage[table,x11names]{xcolor}
+\graphicspath{ {Entwurf/exports/png/} }
 
-
-\begin{document}
 \section{Datenbank}
 Die Datenbank für die Applikation besteht aus vier Tabellen : Group, Reservation, Appointment und Booking.
 Die Struktur der Tabellen ist in Abbildung \ref{fig:ER-Diagramm} dargestellt.
 
-\begin{figure}[ht]		
+\begin{figure}[ht]
 	\centering
-	\includegraphics[scale=0.3]{ER-Diagramm}
+	\includegraphics[scale=0.3]{ER_Diagramm.png}
 	\caption{Datenbankentwurf}
-	\label{fig:ER-Diagramm}	
+	\label{fig:ER-Diagramm}
 \end{figure}
 
 Abkürzungserläuterung
@@ -27,8 +21,8 @@ Abkürzungserläuterung
 \begin{table}[h]
 	\centering
 	\caption{Appointment}
-	\label{tab:Appointment}   
-    \begin{tabular}{| l | l | l | l |}
+	\label{tab:Appointment}
+    \begin{tabular}{| p{2cm} | p{3cm} | p{10cm} |}
     \hline
     \rowcolor{lightgray} Spalte & Datentyp & Beschreibung  \\ \hline
     Date  & DATE & Datum des Termins (Primärschlüssel).\\ \hline
@@ -41,14 +35,14 @@ Abkürzungserläuterung
 
 In Tabelle \ref{tab:Appointment} wird die Struktur der Tabelle Appointment dargestellt. Die Tabelle Appointment speichert alle Termine. Mit dem Feld "Activated" wird gekennzeichnet, ob ein Termin deaktiviert oder aktiviert ist. Die Zustände "gebucht" und "reserviert" ergeben sich daraus, dass ein entsprechender Eintrag in "Booking" oder "Reservation" vorhanden ist.
 \begin{itemize}
-	\item Jeder Termin darf nur von einem Eintrag in der Tabelle Reservation referenziert werden. 
+	\item Jeder Termin darf nur von einem Eintrag in der Tabelle Reservation referenziert werden.
 \end{itemize}
 
 \begin{table}[h]
 \centering
 	\caption{Reservation}
 	\label{tab:Reservation}
-    \begin{tabular}{| l | l | l |}
+    \begin{tabular}{| p{2cm} | p{3cm} | p{10cm} |}
     \hline
     \rowcolor{lightgray} Spalte & Datentyp & Beschreibung  \\ \hline
     Groups & INTEGER & Die Gruppe, die den Termin reserviert oder gebucht hat (Primärschlüüsel, Fremdschlüssel auf Groups.Groupnumber).  \\ \hline
@@ -57,7 +51,7 @@ In Tabelle \ref{tab:Appointment} wird die Struktur der Tabelle Appointment darge
 \end{table}
 In Tabelle \ref{tab:Reservation} wird die Struktur der Tabelle Reservation  dargestellt.  In dieser Tabelle werden sowohl Reservierungen, als auch Buchungen eingetragen. Eine Buchung ist dadurch zu erkennen, dass es zusätzlich einen entsprechenden Eintrag in Booking gibt. Das liegt daran, dass man eine Buchung aus Datensicht als Spezialisierung der Reservierung sehen kann. Jede Buchung verhält sich wie eine Reservierung, nur mit den zusätzlichen Eigenschaften Startzeit, Endzeit und Raum. Dadurch ist auch die Integritätsprüfung leichter, da jeder Termin max. eine Buchung oder Reservierung haben darf, und auch jede Gruppe max. eine Buchung oder Reservierung. Ein Eintrag in Reservation repräsentiert also eine Buchung, wenn zusätzlich ein Eintrag in Booking vorhanden ist, sonst nur eine Reservierung.
 
-\begin{itemize} 
+\begin{itemize}
 	\item Jeder Termin kann nur einen Eintrag in Reservierung haben.
 	\item Jede Gruppe darf nur einen Eintrag in Reservierung haben.
 	\item Ein Termin kann eine Reservierung bzw. Buchung oder gar keine haben.
@@ -66,8 +60,8 @@ In Tabelle \ref{tab:Reservation} wird die Struktur der Tabelle Reservation  darg
 \begin{table}[h]
 \centering
 \caption{Groups}
-    \label{tab:Groups}    
-    \begin{tabular}{| l | l | l | l |}
+    \label{tab:Groups}
+    \begin{tabular}{| p{2cm} | p{3cm} | p{10cm} |}
     \hline
     \rowcolor{lightgray} Spalte & Datentyp & Beschreibung  \\ \hline
     Groupnumber & INTEGER & Gruppesnummer(Primärschlüssel).  \\ \hline
@@ -77,23 +71,21 @@ In Tabelle \ref{tab:Reservation} wird die Struktur der Tabelle Reservation  darg
 In Tabelle \ref{tab:Groups} wird die Struktur der Tabelle Groups dargestellt. Jede Gruppe wir über eine Nummer identifiziert.
 
 \begin{itemize}
-	\item Jede Gruppe kann entweder einen oder keinen Eintrag in der Tabelle Reservierung haben. 
+	\item Jede Gruppe kann entweder einen oder keinen Eintrag in der Tabelle Reservierung haben.
 \end{itemize}
 
 \begin{table}[h]
 \centering
 \caption{Booking}
 	\label{tab:Booking}
-    \begin{tabular}{| l | l | l | l |}
+    \begin{tabular}{| p{2cm} | p{3cm} | p{10cm} |}
     \hline
     \rowcolor{lightgray} Spalte & Datentyp & Beschreibung  \\ \hline
     Reservation  & INTEGER & Referenz auf den dazugehörigen Eintrag in Reservation(Primarykey,Foreign key Reservation.Groups). \\ \hline
     Startime & TIME & Startzeit der Buchung. \\ \hline
     Endtime & TIME & Endzeit der Buchung. \\ \hline
-    Room & CHAR(15) & Raum wo der Termin stattfindet. \\ \hline
+    Room & VARCHAR(15) & Raum wo der Termin stattfindet. \\ \hline
     \end{tabular}
 \end{table}
 
 In Tabelle \ref{tab:Booking} wird die Struktur der Tabelle Booking dargestellt. Die Tabelle Booking dient als ein Speziallfall der Tabele Reservation, da jede Gruppe max. 1 Reservierung oder Buchung haben kann.
-
-\end{document}

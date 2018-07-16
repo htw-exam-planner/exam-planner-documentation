@@ -2,12 +2,12 @@
 
 
 \section{Grobentwurf}
-\begin{figure}
+\begin{figure}[H]
  \includegraphics[width=\textwidth]{Entwurf_DD_Architektur.png}
  \label{fig:Deployment}
  \caption{Verteilungsdiagramm}
 \end{figure}
-\begin{figure}
+\begin{figure}[H]
  \includegraphics[width=\textwidth]{Entwurf_PD_Grobentwurf.png}
  \label{fig:Paketdiagramm_Grobentwurf}
  \caption{Paketdiagramm Grobentwurf}
@@ -43,19 +43,19 @@ Der Feinentwurf wird in den Klassendiagrammen in den Abbildungen \ref{fig:Klasse
 In den Klassendiagrammen werden abstrakte Methoden \textit{kursiv}, statische Methoden und Member \underline{unterstrichen} dargestellt.
 
  \subsection{Das Paket Start}
- \begin{figure}
+ \begin{figure}[H]
   \includegraphics[width=\textwidth]{Entwurf_KD_Feinentwurf_Start.png}
-  \label{fig:Klassendiagramm_Start}
   \caption{Feinentwurf des Pakets Start}
+  \label{fig:Klassendiagramm_Start}
  \end{figure}
 
  Das Klassendiagramm in Abbildung \ref{fig:Klassendiagramm_Start} zeigt die Klassen der Startansicht. Es besitzt nur einen Presenter und einen View, mit denen ausgewählt werden kann, welche Rolle der Benutzer einnimmt. Je nach Wahl des Nutzers wird vom Controller entweder die Admin-Main-Ansicht oder die Student-GroupSelection-Ansicht geladen.
 
  \subsection{Das Paket Student}
- \begin{figure}
+ \begin{figure}[H]
     \includegraphics[width=\textwidth]{Entwurf_KD_Feinentwurf_Student.png}
-    \label{fig:Klassendiagramm_Student}
     \caption{Feinentwurf des Pakets Student}
+    \label{fig:Klassendiagramm_Student}
  \end{figure}
 
 Das Klassendiagramm in Abbildung \ref{fig:Klassendiagramm_Student} zeigt die Klassen der Studentenansicht.
@@ -66,10 +66,10 @@ Schließlich gibt es im Paket Views noch den BookingDialog, der den Dialog, in d
 Diejenigen Presenter, die auf die Daten der Models zugreifen, haben jeweils eine Assoziationsbeziehung zu den jeweiligen Models.
 
  \subsection{Das Paket Admin}
- \begin{figure}
+ \begin{figure}[H]
   \includegraphics[width=\textwidth]{Entwurf_KD_Feinentwurf_Admin.png}
-  \label{fig:Klassendiagramm_Admin}
   \caption{Feinentwurf des Pakets Admin}
+  \label{fig:Klassendiagramm_Admin}
  \end{figure}
 
  Die Abbildung \ref{fig:Klassendiagramm_Admin} zeigt die Klassen der Adminansicht. Es gibt sieben Presenter mit den dazugehörigen Views.
@@ -81,10 +81,10 @@ Diejenigen Presenter, die auf die Daten der Models zugreifen, haben jeweils eine
  Wie in der Studentenansicht besitzen die Presenter, die auf die Daten des Models zugreifen, zu den jeweiligen Models Assoziationsbeziehungen.
 
  \subsection{Das Paket Shared}
- \begin{figure}
+ \begin{figure}[H]
   \includegraphics[width=\textwidth]{Entwurf_KD_Feinentwurf_Shared.png}
-  \label{fig:Klassendiagramm_Shared}
   \caption{Feinentwurf des Pakets Shared}
+  \label{fig:Klassendiagramm_Shared}
  \end{figure}
 
  Die Abbildung \ref{fig:Klassendiagramm_Shared} zeigt die Klassen, die sowohl von der Studentenansicht als auch von der Adminansicht verwendet werden, da es in beiden eine Terminansicht gibt, die sich jedoch bei Adminstrator und Student in kleinen Punkten unterscheidet.
@@ -93,10 +93,10 @@ Diejenigen Presenter, die auf die Daten der Models zugreifen, haben jeweils eine
  Bei den Views wird der View Appointments von beiden vewendet, Admin und Student haben nur für den AppointmentEntry jeweils eine eigene Implementierung.
 
  \subsection{Model und Repository}
- \begin{figure}
+ \begin{figure}[H]
   \includegraphics[width=\textwidth]{Entwurf_KD_Models-Repo.png}
+  \caption{Feinentwurf von Model und das Repository}
   \label{fig:Klassendiagramm_Models-Repo}
-\caption{Feinentwurf von Model und das Repository}
  \end{figure}
 
 Im Paket Model (siehe Abbildung \ref{fig:Klassendiagramm_Models-Repo}) befinden sich die Klassen Appointment, Reservation, Booking, TimeWindow und Group. Die Klasse Appointment ist für die Termine zuständig. Die Klasse Reservation kümmert sich um Reservierungen, Booking um Buchungen, TimeWindow um die Zeitfenster der Termine und Buchungen und die Klasse Group um alle Belange der Gruppen, wie zum Beispiel anlegen oder löschen.
