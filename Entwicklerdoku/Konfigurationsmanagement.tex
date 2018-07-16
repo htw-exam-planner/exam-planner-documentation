@@ -1,0 +1,8 @@
+\section{Konfigurationsmanagement}
+Die Konfigurationen und Abhängigkeiten des Projekts wurden über Apache Maven verwaltet.
+
+\subsection{Abhängigkeiten}
+Für die Tests werden JUnit 4, AssertJ und Mockito benötigt. Für die Datenbankverbindung benötigt man den SQL-Server-Treiber von Microsoft. Zum Generieren der Schnittstellendokumentation wird das maven-javadoc- Plugin benötigt. Alle diese Abhängigkeiten können mit \texttt{mvn install} installiert werden.
+
+\subsection{Kompilierung}
+Damit die Applikation lauffähig ist, müssen in der Datei \texttt{src/main/resources/db.properties} die Zugangsdaten für die Datenbank abgelegt werden. Zur Orientierung dient die Datei \texttt{src/main/resources/db.properties.example}. Ist \texttt{db.properties} vorhanden, so kann die Applikation mittels \texttt{mvn clean build} gebaut werden. Das Ergebnis ist eine ausführbare jar-Datei, die im Ordner target abgelegt ist.
