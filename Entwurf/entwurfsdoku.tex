@@ -1,0 +1,108 @@
+\graphicspath{ {Entwurf/exports/png/} }
+
+
+\section{Grobentwurf}
+\begin{figure}
+ \includegraphics[width=\textwidth]{Entwurf_DD_Architektur.png}
+ \label{fig:Deployment}
+ \caption{Verteilungsdiagramm}
+\end{figure}
+\begin{figure}
+ \includegraphics[width=\textwidth]{Entwurf_PD_Grobentwurf.png}
+ \label{fig:Paketdiagramm_Grobentwurf}
+ \caption{Paketdiagramm Grobentwurf}
+\end{figure}
+
+Die Architektur des Systems ist eine Repository-Architektur, dargestellt im Verteilungsdiagramm \ref{fig:Deployment}. Dabei dient die Datenbank auf dem HTW-Server als zentrales Repository zur Datenhaltung, das von beliebig vielen Clients (die sich auf dem Nutzer-PC befinden) verwendet wird. Durch diese Architektur wird die Verantwortung für technologiespezifische Datenhaltungsaufgaben aus der Logikschicht herausgelöst und isoliert implementiert.
+Die Architektur eines einzelnen Clients (siehe Abbildung \ref{fig:Paketdiagramm_Grobentwurf} ist eine 3-Schichtenarchitektur, in der das Repository-Paket der Datenhaltungsschicht entspricht, indem es die Schnittstelle zwischen Client und Repository bildet. Die Models bilden die Logikschicht und die Views und Presenter bilden die Präsentationsschicht. Die oberen beiden Schichten wiederum, in denen sich Models, Views und Presenter befinden, wurden nach dem Model-View-Presenter-Entwurfsmuster gestaltet.
+
+Für das Model-View-Presenter-Muster haben wir uns entschieden, da dadurch die Models technologieunabhängig und isoliert zur Darstellungsschicht sind. Des Weiteren sind die Views passiv und unabhängig von weiteren Anwendungsinhalten, sie dienen allein zur Darstellung und werden von außen mit Daten versorgt.
+
+\subsection{Darstellungsschicht}
+Die Darstellungsschicht wurde in die 4 Pakete Start, Student, Admin und Shared unterteilt. Jedes dieser Pakete enthält als Unterpakete die Pakete Views und Presenters, in welchen jeweils die Views und Presenter entsprechend ihren Rollen des Model-View-Presenter-Musters (MVP) enthalten sind. Die Aufgaben der Pakete sind
+
+\paragraph{Start} enthält den View und Presenter der Startansicht, in der der Benutzer wählt, ob er die Applikation als Adminstrator oder Student verwendet.
+\paragraph{Student} enthält die Views und Presenter der Studentenansicht.
+\paragraph{Admin} enthält die Views und Presenter der Adminstratoransicht.
+\paragraph{Shared} enthält Views und Presenter, die sowohl in der Studenten- als auch in der Adminansicht verwendet werden.
+
+Die Views und Presenter haben dem MVP-Muster entsprechend folgende Aufgaben:
+\paragraph{Views} zeigen die Daten an und sind für die Interaktion mit dem Nutzer zuständig. Sie erhalten die Daten nicht direkt vom Model, sondern der jeweilige Presenter liefert diese. Vom Nutzer ausgelöste Ereignisse werden ebenfalls an den Presenter weitergeleitet, der die nötigen Aktionen ausführt. Alle Views in diesem Projekt wurden nicht über gewöhnliche Klassen realisiert, sondern wurden mit FXML – der Beschreibungssprache von JavaFX – beschrieben.
+\paragraph{Presenter} kommunizieren sowohl mit dem Model als auch mit ihrem dazugehörigen View. Sie holen die Daten aus dem Model und liefern sie dann zur Anzeige an den View. Vom View erhalten sie die Nutzerereignisse und reagieren auf diese, indem sie bspw. das Model manipulieren oder die View aktualisieren.
+
+\subsection{Logikschicht – Models}
+Die Logikschicht wird durch das Paket Models übernommen. Es enthält alle Klassen, die die Domänendaten repräsentieren. Diese Klassen enthalten sowohl die Daten der Domänenobjekte (in diesem Fall z.B. Termine), als auch Methoden um diese Daten zu manipulieren, entsprechend dem fachlichen Modell. Zur persistenten Speicherung der Daten kommunizieren die Models mit der Datenhaltungsschicht.
+
+\subsection{Datenhaltungsschicht}
+Die Datenhaltungsschicht wird durch das Paket Repository realisiert. Es enthält die Klasse, die für die Verbindung zur Datenbank zustädnig ist und die Objekte des Domänenmodells auf Datenbankrelationen abbildet und umgekehrt. Der Grund für die Benennung "`Repository"' ist, dass das Paket ein Stück weit die Rolle des Repository im gleichnamigen Architekturmuster übernimmt, da es die Daten verwaltet, die von verschiedenen Komponenten (nämlich Adminstratoransicht und Studentenansicht) verwendet werden.
+
+\section{Feinentwurf}
+Der Feinentwurf wird in den Klassendiagrammen in den Abbildungen \ref{fig:Klassendiagramm_Models-Repo}, \ref{fig:Klassendiagramm_Start}, \ref{fig:Klassendiagramm_Student}, \ref{fig:Klassendiagramm_Admin} und \ref{fig:Klassendiagramm_Shared} verdeutlicht.
+
+\subsection{Hinweise zur Darstellung}
+In den Klassendiagrammen werden abstrakte Methoden \textit{kursiv}, statische Methoden und Member \underline{unterstrichen} dargestellt.
+
+ \subsection{Das Paket Start}
+ \begin{figure}
+  \includegraphics[width=\textwidth]{Entwurf_KD_Feinentwurf_Start.png}
+  \label{fig:Klassendiagramm_Start}
+  \caption{Feinentwurf des Pakets Start}
+ \end{figure}
+
+ Das Klassendiagramm in Abbildung \ref{fig:Klassendiagramm_Start} zeigt die Klassen der Startansicht. Es besitzt nur einen Presenter und einen View, mit denen ausgewählt werden kann, welche Rolle der Benutzer einnimmt. Je nach Wahl des Nutzers wird vom Controller entweder die Admin-Main-Ansicht oder die Student-GroupSelection-Ansicht geladen.
+
+ \subsection{Das Paket Student}
+ \begin{figure}
+    \includegraphics[width=\textwidth]{Entwurf_KD_Feinentwurf_Student.png}
+    \label{fig:Klassendiagramm_Student}
+    \caption{Feinentwurf des Pakets Student}
+ \end{figure}
+
+Das Klassendiagramm in Abbildung \ref{fig:Klassendiagramm_Student} zeigt die Klassen der Studentenansicht.
+GroupSelection ist die erste Ansicht, in der der Benutzer die Gruppe wählt, als die er sich anmeldet.
+Die Hauptansicht wird durch den View und Presenter "`Appointments"`' bzw. StudenAppointments realisiert, wobei die View, da sie auch in der Adminansicht verwendet wird, im Paket Shared untergebracht ist.
+Die "`Appointments"'-View (sowie der Presenter) besitzen mehrere StudentAppointmentEntries, die für die Anzeige eines einzelnen Termins zuständig sind, daher gibt es eine Kompositionsbeziehung zwischen Appointments und StudentAppointmentEntry.
+Schließlich gibt es im Paket Views noch den BookingDialog, der den Dialog, in dem ein Student beim Buchen eines Termins die Startzeit wählt, realisiert.
+Diejenigen Presenter, die auf die Daten der Models zugreifen, haben jeweils eine Assoziationsbeziehung zu den jeweiligen Models.
+
+ \subsection{Das Paket Admin}
+ \begin{figure}
+  \includegraphics[width=\textwidth]{Entwurf_KD_Feinentwurf_Admin.png}
+  \label{fig:Klassendiagramm_Admin}
+  \caption{Feinentwurf des Pakets Admin}
+ \end{figure}
+
+ Die Abbildung \ref{fig:Klassendiagramm_Admin} zeigt die Klassen der Adminansicht. Es gibt sieben Presenter mit den dazugehörigen Views.
+ Der View und Presenter Setup sind für die Ansicht zuständig, in der der Adminstrator die Termine und Gruppen neu generiert. Er wird von der Main-Ansicht geladen und lädt diese auch wieder, daher eine Assoziationsbeziehung zwischen Main und Setup.
+ Die Main-Ansicht besitzt eine (Admin-)Appointments-Ansicht zum Anzeigen der Termine und eine AdminGroups zum Anzeigen der Gruppen.
+ Für die einzelnen Einträge gibt es jeweils die AdminAppointmentEntry und GroupEntry. \\
+ Die Komponenten Appointments und die Entry-Komponenten sind außerdem in sich gekapselt, da sie ihre dazugehörige View selbst laden und so an beliebiger Stelle ohne Wissen über die Interna der View wiederverwendet werden können. \\
+ Schließlich gibt es noch den EditDialog, der das Dialogfenster zum Bearbeiten eines Termins realisiert.
+ Wie in der Studentenansicht besitzen die Presenter, die auf die Daten des Models zugreifen, zu den jeweiligen Models Assoziationsbeziehungen.
+
+ \subsection{Das Paket Shared}
+ \begin{figure}
+  \includegraphics[width=\textwidth]{Entwurf_KD_Feinentwurf_Shared.png}
+  \label{fig:Klassendiagramm_Shared}
+  \caption{Feinentwurf des Pakets Shared}
+ \end{figure}
+
+ Die Abbildung \ref{fig:Klassendiagramm_Shared} zeigt die Klassen, die sowohl von der Studentenansicht als auch von der Adminansicht verwendet werden, da es in beiden eine Terminansicht gibt, die sich jedoch bei Adminstrator und Student in kleinen Punkten unterscheidet.
+ Um die Gemeinsamkeiten zu realisieren, gibt es bei den Presenters die Klassen Appointments (zur Anzeige aller Termine) und AppointmentEntry (zur Anzeige eines Termins), die die entsprechenden Klassen in Admin und Student generalisieren.
+ Um in Admin- und Studentenansicht die verschiedenen AppointmentEntry verwenden zu können, und trotzdem zur Anzeige nur die eine Methode der generalisierten Appointments-Klasse zu verwenden, wurde das Factory-Method-Muster verwendet: die in den spezialisierten Klassen implementierte Methode createAppointmentEntry liefert das jeweilige AppointmentEntry.
+ Bei den Views wird der View Appointments von beiden vewendet, Admin und Student haben nur für den AppointmentEntry jeweils eine eigene Implementierung.
+
+ \subsection{Model und Repository}
+ \begin{figure}
+  \includegraphics[width=\textwidth]{Entwurf_KD_Models-Repo.png}
+  \label{fig:Klassendiagramm_Models-Repo}
+\caption{Feinentwurf von Model und das Repository}
+ \end{figure}
+
+Im Paket Model (siehe Abbildung \ref{fig:Klassendiagramm_Models-Repo}) befinden sich die Klassen Appointment, Reservation, Booking, TimeWindow und Group. Die Klasse Appointment ist für die Termine zuständig. Die Klasse Reservation kümmert sich um Reservierungen, Booking um Buchungen, TimeWindow um die Zeitfenster der Termine und Buchungen und die Klasse Group um alle Belange der Gruppen, wie zum Beispiel anlegen oder löschen.
+Da eine Buchung oder Reservierung fest zu einem Termin gehört, ist die Beziehung eine 1:1-Komposition. Ebenso gehört ein TimeWindow immer zu einem Termin oder einer Buchung, daher auch eine Komposition.
+Alle Models haben eine Assoziation zur Klasse DBRepository, da diese die Speicherung der Daten in der Datenbank übernimmt.
+\\
+
+Im Paket Repository (ebenfalls in Abbildung \ref{fig:Klassendiagramm_Models-Repo}) befindet sich die Klasse DBRepository. Sie holt die Daten aus der Datenbank und wandelt diese in Objekte der Models um, ebenso speichert sie Änderung in den Models wieder in der Datenbank. \\
+Die Zugangsdaten zur Datenbank werden in der Datei db.properties abgelegt, welche nicht in der Versionsverwaltung versioniert wird. Durch Austausch dieser Datei kann einfach und flexibel eine andere Datenbank verwendet werden.

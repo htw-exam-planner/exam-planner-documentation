@@ -1,0 +1,259 @@
+%%%%%%%%%%%%%%%%%%%%%%%%% Makros %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%Semanktik: \testReport{Datum}{Tester}{Testfall}{Ergebnis}{Bewertung}
+\newcommand{\testReport}[5]{
+  \paragraph{Test am #1, durchgeführt von #2}
+  #3
+  \subparagraph{Tatsächliches Ergebnis:} #4
+  \subparagraph{Bewertung:} #5
+}
+
+%Semanktik: \testCase{Gegenstand}{Testfall}{Testdaten}{Rahmenbedingungen}{Erwartetes Ergebnis}
+\newcommand{\testCase}[5]{
+  \subparagraph{Testgegenstand:} #1
+  \subparagraph{Testfall:} #2
+  \subparagraph{Testdaten:} #3
+  \subparagraph{Rahmenbedingungen:} #4
+  \subparagraph{Erwartetes Ergebnis:} #5
+}
+
+%%%%%%%%%%%%%% Testfälle %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\testGenerate}{
+  \testCase{Teilsystem Prüfungstermine verwalten}
+    {Termine und Gruppen generieren}
+    {Startdatum: 9.7.2018, Anzahl Gruppen: 10}
+    {}
+    {15 freie Termine an den Wochentagen ab 9.7., 10 Gruppen}
+}
+
+\newcommand{\testGenerateNotMonday}{
+  \testCase{Teilsystem Prüfungstermine verwalten}
+    {Termine und Gruppen generieren}
+    {Startdatum: 10.7.2018, Anzahl Gruppen: 10}
+    {}
+    {Warnhinweis, da 10.7. kein Montag ist}
+}
+
+\newcommand{\testGenerateZeroGroups}{
+  \testCase{Teilsystem Prüfungstermine verwalten}
+    {Termine und Gruppen generieren}
+    {Startdatum: 9.7.2018, Anzahl Gruppen: 0}
+    {}
+    {Warnhinweis, da 0 Gruppen unzulässig sind}
+}
+
+\newcommand{\testFreeDeactivated}{
+  \testCase{Teilsystem Prüfungstermine verwalten}
+    {Termin als frei markieren}
+    {deaktivierter Termin 9.7.2018 aus Testdatensatz}
+    {Termin ist deaktiviert}
+    {Termin 9.7. hat Zustand frei, ansonsten keine Änderung}
+}
+
+\newcommand{\testFreeBooked}{
+  \testCase{Teilsystem Prüfungstermine verwalten}
+    {Termin als frei markieren}
+    {Termin 11.7.2018, gebucht von Gruppe 1 aus Testdatensatz}
+    {Termin ist gebucht}
+    {Termin 11.7. hat Zustand frei, die Buchung ist nicht mehr vorhanden}
+}
+
+\newcommand{\testDeactivateFree}{
+  \testCase{Teilsystem Prüfungstermine verwalten}
+    {Termin deaktivieren}
+    {Termin 10.7. aus Testdatensatz}
+    {Termin ist frei}
+    {Termin ist deaktiviert, ansonsten keine Änderung}
+}
+
+\newcommand{\testDeactivateReserved}{
+\testCase{Teilsystem Prüfungstermine verwalten}
+  {Termin deaktivieren}
+  {Termin 12. 7. aus Testdatensatz}
+  {Termin ist reserviert}
+  {Termin ist deaktiviert, die Reservierung ist nicht mehr vorhanden}
+}
+
+\newcommand{\testSetTimeWindow}{
+\testCase{Teilsystem Prüfungstermine verwalten}
+  {Zeitfenster bearbeiten}
+  {Termin 13.7. aus Testdatensatz, Zeitfenster 08:00-12:00}
+  {}
+  {Termin mit neuem Zeitfenster 08:00-12:00}
+}
+
+\newcommand{\testSetTimeWindowInvalid}{
+\testCase{Teilsystem Prüfungstermine verwalten}
+  {Zeitfenster bearbeiten}
+  {Termin 13.7. aus Testdatensatz, Zeitfenster 12:00-08:00}
+  {}
+  {Fehlermeldung}
+}
+
+\newcommand{\testSetNote}{
+\testCase{Teilsystem Prüfungstermine verwalten}
+  {Bemerkung bearbeiten}
+  {Termin 13.7. aus Testdatensatz, Bemerkung "`Hier könnte Ihre Werbung stehen"'}
+  {}
+  {Termin hat neue Bemerkung "`Hier könnte Ihre Werbung stehen"'}
+}
+
+\newcommand{\testSetBookingRoomTime}{
+\testCase{Teilsystem Prüfungstermine verwalten}
+  {Raum und Endzeit einer Buchung festlegen}
+  {Termin 16.7. aus Testdatensatz, Endzeit 15:00, Raum Z146b}
+  {Termin ist durch Gruppe 3 gebucht}
+  {Termin mit Endzeit und Raum wie festgelegt}
+}
+
+\newcommand{\testSetBookingRoomTimeNotBooked}{
+\testCase{Teilsystem Prüfungstermine verwalten}
+  {Raum und Endzeit einer Buchung festlegen}
+  {Termin 13.7. aus Testdatensatz}
+  {Termin ist nicht gebucht}
+  {Fehlermeldung, da Termin nicht gebucht}
+}
+
+\newcommand{\testShowAppointments}{
+\testCase{Teilsystem Termine anzeigen}
+  {Termine anzeigen}
+  {}
+  {Termine wurden bereits generiert}
+  {Übersicht der Termine}
+}
+
+\newcommand{\testViewGroups}{
+\testCase{Teilsystem Gruppen verwalten}
+  {Gruppen anzeigen}
+  {}
+  {Gruppen wurden bereits generiert}
+  {Übersicht der Gruppen}
+}
+
+\newcommand{\testDeleteGroup}{
+\testCase{Teilsystem Gruppen verwalten}
+  {Gruppe löschen}
+  {Gruppe 3}
+  {Gruppe 3 hat Termin 16.7. gebucht}
+  {Gruppe ist nicht mehr vorhanden, Buchung am 16.7. nicht mehr vorhanden}
+}
+
+\newcommand{\testCreateGroup}{
+\testCase{Teilsystem Gruppen verwalten}
+  {Gruppe anlegen}
+  {}
+  {Gruppen des Testdatensatzes vorhanden, Gruppe 3 ist gelöscht}
+  {Neue Gruppe mit Nummer 8 angelegt}
+}
+
+\newcommand{\testLogInGroup}{
+\testCase{Teilsystem Termine anzeigen und buchen}
+  {Als Gruppe anmelden}
+  {Gruppe 6}
+  {}
+  {Terminübersicht}
+}
+
+\newcommand{\testReserveDeactivated}{
+\testCase{Teilsystem Termine anzeigen und buchen}
+  {Termin reservieren}
+  {Termin 9.7. aus Testdatensatz}
+  {Termin ist deaktiviert, angemeldete Gruppe 6 hat noch nicht reserviert}
+  {Fehlermeldung, da Termin deaktiviert ist}
+}
+
+\newcommand{\testReserveBooked}{
+\testCase{Teilsystem Termine anzeigen und buchen}
+  {Termin reservieren}
+  {Termin 11.7. aus Testdatensatz}
+  {Termin ist bereits gebucht durch Gruppe 2, angemeldet als Gruppe 6}
+  {Fehlermeldung, da Termin bereits gebucht ist}
+}
+
+\newcommand{\testReserve}{
+\testCase{Teilsystem Termine anzeigen und buchen}
+  {Termin reservieren}
+  {Termin 20.7. aus Testdatensatz}
+  {Als Gruppe 6 angemeldet, Termin ist frei}
+  {Termin 20.7. ist von Gruppe 6 reserviert}
+}
+
+\newcommand{\testReserveGroupAlreadyBooked}{
+\testCase{Teilsystem Termine anzeigen und buchen}
+  {Termin reservieren}
+  {Termin 13.7. aus Testdatensatz, Startzeit 11:00}
+  {Angemeldete Gruppe 1 hat bereits gebucht}
+  {Fehlermeldung, da Gruppe bereits gebucht hat}
+}
+
+\newcommand{\testCancelReservation}{
+\testCase{Teilsystem Termine anzeigen und buchen}
+  {Reservierung stornieren}
+  {Termin 12.7. aus Testdatensatz}
+  {Termin ist reserviert durch angemeldete Gruppe 2}
+  {Termin ist wieder frei}
+}
+
+\newcommand{\testCancelOtherReservation}{
+\testCase{Teilsystem Termine anzeigen und buchen}
+  {Reservierung stornieren}
+  {Termin 19.7. aus Testdatensatz}
+  {Angemeldet als Gruppe 2, Termin gebucht durch Gruppe 4}
+  {Fehlermeldung}
+}
+
+\newcommand{\testCancelReservationNoReservationPresent}{
+\testCase{Teilsystem Termine anzeigen und buchen}
+  {Reservierung stornieren}
+  {Termin 23.7. aus Testdatensatz}
+  {Termin ist nicht reserviert}
+  {Fehlermeldung}
+}
+
+\newcommand{\testBook}{
+\testCase{Teilsystem Termine anzeigen und buchen}
+  {Termin buchen}
+  {Termin 13.7. aus Testdatensatz, Startzeit 09:00}
+  {Termin ist frei, angemeldet als Gruppe 5}
+  {Termin ist durch Gruppe gebucht mit gewünschter Startzeit}
+}
+
+\newcommand{\testBookGroupBookedAlready}{
+\testCase{Teilsystem Termine anzeigen und buchen}
+  {Termin buchen}
+  {Termin 24.7. aus Testdatensatz, Startzeit 09:00}
+  {Angemeldete Gruppe 1 hat bereits gebucht}
+  {Fehlermeldung, da Gruppe bereits gebucht hat}
+}
+
+\newcommand{\testBookGroupHasReservation}{
+\testCase{Teilsystem Termine anzeigen und buchen}
+  {Termin buchen}
+  {Termin 25.7. aus Testdatensatz, Startzeit 09:00}
+  {Angemeldet als Gruppe 4, die den 19.7. reserviert hat}
+  {Termin ist durch Gruppe gebucht, Reservierung ist nicht mehr vorhanden}
+}
+
+\newcommand{\testBookInvalidStartTime}{
+\testCase{Teilsystem Termine anzeigen und buchen}
+  {Termin buchen}
+  {Termin 26.7. aus Testdatensatz, Startzeit 07:00}
+  {Startzeit ist außerhalb des Zeitfensters, angemeldete Gruppe 6 hat noch nicht gebucht}
+  {Fehlermeldung, da Startzeit nicht in Zeitfenster}
+}
+
+\newcommand{\testBookReservedByOther}{
+\testCase{Teilsystem Termine anzeigen und buchen}
+  {Termin buchen}
+  {Termin 12.7. aus Testdatensatz, Startzeit 09:00}
+  {Angemeldet als Gruppe 7, Termin ist durch Gruppe 2 reserviert}
+  {Fehlermeldung, da durch andere Gruppe reserviert}
+}
+
+\newcommand{\testCreateGroupAndBook}{
+\testCase{Teilsysteme Termine anzeigen und buchen und Termine verwalten}
+  {Gruppe anlegen und Termin buchen}
+  {Termin 26.7. aus Testdatensatz, Startzeit 09:00}
+  {Angemeldet als neu angelegte Gruppe}
+  {Termin ist gebucht}
+}
