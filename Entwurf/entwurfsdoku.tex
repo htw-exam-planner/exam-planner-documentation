@@ -3,13 +3,18 @@
 
 \section{Grobentwurf}
 \begin{figure}
+ \includegraphics[width=\textwidth]{Entwurf_DD_Architektur.png}
+ \label{fig:Deployment}
+ \caption{Verteilungsdiagramm}
+\end{figure}
+\begin{figure}
  \includegraphics[width=\textwidth]{Entwurf_PD_Grobentwurf.png}
  \label{fig:Paketdiagramm_Grobentwurf}
  \caption{Paketdiagramm Grobentwurf}
 \end{figure}
 
-Der Grobentwurf (dargestellt in Abbildung \ref{fig:Paketdiagramm_Grobentwurf}) vereint mehrere Architekturmuster. Zum einen kann die Struktur als Repository-Architektur angesehen werden, da es verschiedene Ansichten gibt, die alle auf die gleiche Datenbasis zugreifen, das Repository. Die Schnittstelle zwischen den Clients und der Datenbasis bildet das Paket Repository.
-Betrachtet man einen einzelnen Client, so kann dessen Struktur wiederum als 3-Schichtenarchitektur gesehen werden, in der das Repository-Paket der Datenhaltungsschicht entspricht, die Models der Logikschicht und Views und Presenter der Präsentationsschicht. Die oberen beiden Schichten wiederum, in denen sich Models, Views und Presenter befinden, wurden nach dem Model-View-Presenter-Entwurfsmuster gestaltet.
+Die Architektur des Systems ist eine Repository-Architektur, dargestellt im Verteilungsdiagramm \ref{fig:Deployment}. Dabei dient die Datenbank auf dem HTW-Server als zentrales Repository zur Datenhaltung, das von beliebig vielen Clients (die sich auf dem Nutzer-PC befinden) verwendet wird. Die Schnittstelle zwischen der Datenbank und dem Client bildet das Paket Repository.
+Die Architektur eines einzelnen Clients (siehe Abbildung \ref{fig:Paketdiagramm_Grobentwurf} ist eine 3-Schichtenarchitektur, in der das Repository-Paket der Datenhaltungsschicht entspricht, die Models der Logikschicht und Views und Presenter der Präsentationsschicht. Die oberen beiden Schichten wiederum, in denen sich Models, Views und Presenter befinden, wurden nach dem Model-View-Presenter-Entwurfsmuster gestaltet.
 
 \subsection{Darstellungsschicht}
 Die Darstellungsschicht wurde in die 4 Pakete Start, Student, Admin und Shared unterteilt. Jedes dieser Pakete enthält als Unterpakete die Pakete Views und Presenters, in welchen jeweils die Views und Presenter entsprechend ihren Rollen des Model-View-Presenter-Musters (MVP) enthalten sind. Die Aufgaben der Pakete sind
