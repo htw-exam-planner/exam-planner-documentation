@@ -2,9 +2,10 @@
 \usepackage[utf8]{inputenc}
 \usepackage{tocbibind}
 \usepackage{xcolor}
-\usepackage{hyperref}
 \usepackage[ngerman]{babel}
-\usepackage{graphicx}
+
+\input{Schnittstelle/JavaDoc_preamble}
+\def \bf {\textbf}
 
 %For smaller margins
 \usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
@@ -13,4 +14,6 @@
   \input{Entwurf/entwurfsdoku}
   
   \input{Testdokumentation/testdoku}
+  
+  \input{Schnittstelle/JavaDoc}
 \end{document}
