@@ -21,7 +21,7 @@ CREATE TABLE Booking (
     Reservation INTEGER NOT NULL,
     StartTime TIME NOT NULL,
     EndTime TIME,
-    Room CHAR(15),
+    Room VARCHAR(15),
     PRIMARY KEY (Reservation)
 );
 
