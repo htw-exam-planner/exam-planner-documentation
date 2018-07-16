@@ -13,8 +13,10 @@
  \caption{Paketdiagramm Grobentwurf}
 \end{figure}
 
-Die Architektur des Systems ist eine Repository-Architektur, dargestellt im Verteilungsdiagramm \ref{fig:Deployment}. Dabei dient die Datenbank auf dem HTW-Server als zentrales Repository zur Datenhaltung, das von beliebig vielen Clients (die sich auf dem Nutzer-PC befinden) verwendet wird. Die Schnittstelle zwischen der Datenbank und dem Client bildet das Paket Repository.
-Die Architektur eines einzelnen Clients (siehe Abbildung \ref{fig:Paketdiagramm_Grobentwurf} ist eine 3-Schichtenarchitektur, in der das Repository-Paket der Datenhaltungsschicht entspricht, die Models der Logikschicht und Views und Presenter der Präsentationsschicht. Die oberen beiden Schichten wiederum, in denen sich Models, Views und Presenter befinden, wurden nach dem Model-View-Presenter-Entwurfsmuster gestaltet.
+Die Architektur des Systems ist eine Repository-Architektur, dargestellt im Verteilungsdiagramm \ref{fig:Deployment}. Dabei dient die Datenbank auf dem HTW-Server als zentrales Repository zur Datenhaltung, das von beliebig vielen Clients (die sich auf dem Nutzer-PC befinden) verwendet wird. Durch diese Architektur wird die Verantwortung für technologiespezifische Datenhaltungsaufgaben aus der Logikschicht herausgelöst und isoliert implementiert.
+Die Architektur eines einzelnen Clients (siehe Abbildung \ref{fig:Paketdiagramm_Grobentwurf} ist eine 3-Schichtenarchitektur, in der das Repository-Paket der Datenhaltungsschicht entspricht, indem es die Schnittstelle zwischen Client und Repository bildet. Die Models bilden die Logikschicht und die Views und Presenter bilden die Präsentationsschicht. Die oberen beiden Schichten wiederum, in denen sich Models, Views und Presenter befinden, wurden nach dem Model-View-Presenter-Entwurfsmuster gestaltet.
+
+Für das Model-View-Presenter-Muster haben wir uns entschieden, da dadurch die Models technologieunabhängig und isoliert zur Darstellungsschicht sind. Des Weiteren sind die Views passiv und unabhängig von weiteren Anwendungsinhalten, sie dienen allein zur Darstellung und werden von außen mit Daten versorgt.
 
 \subsection{Darstellungsschicht}
 Die Darstellungsschicht wurde in die 4 Pakete Start, Student, Admin und Shared unterteilt. Jedes dieser Pakete enthält als Unterpakete die Pakete Views und Presenters, in welchen jeweils die Views und Presenter entsprechend ihren Rollen des Model-View-Presenter-Musters (MVP) enthalten sind. Die Aufgaben der Pakete sind
@@ -58,7 +60,7 @@ In den Klassendiagrammen werden abstrakte Methoden \textit{kursiv}, statische Me
 
 Das Klassendiagramm in Abbildung \ref{fig:Klassendiagramm_Student} zeigt die Klassen der Studentenansicht.
 GroupSelection ist die erste Ansicht, in der der Benutzer die Gruppe wählt, als die er sich anmeldet.
-Die Hauptansicht wird durch den View und Presenter "`Appointments"`' bzw. StudenAppointments realisiert, wobei der View, da er auch in der Adminansicht verwendet wird, im Paket Shared untergebracht ist.
+Die Hauptansicht wird durch den View und Presenter "`Appointments"`' bzw. StudenAppointments realisiert, wobei die View, da sie auch in der Adminansicht verwendet wird, im Paket Shared untergebracht ist.
 Die "`Appointments"'-View (sowie der Presenter) besitzen mehrere StudentAppointmentEntries, die für die Anzeige eines einzelnen Termins zuständig sind, daher gibt es eine Kompositionsbeziehung zwischen Appointments und StudentAppointmentEntry.
 Schließlich gibt es im Paket Views noch den BookingDialog, der den Dialog, in dem ein Student beim Buchen eines Termins die Startzeit wählt, realisiert.
 Diejenigen Presenter, die auf die Daten der Models zugreifen, haben jeweils eine Assoziationsbeziehung zu den jeweiligen Models.
@@ -73,9 +75,8 @@ Diejenigen Presenter, die auf die Daten der Models zugreifen, haben jeweils eine
  Die Abbildung \ref{fig:Klassendiagramm_Admin} zeigt die Klassen der Adminansicht. Es gibt sieben Presenter mit den dazugehörigen Views.
  Der View und Presenter Setup sind für die Ansicht zuständig, in der der Adminstrator die Termine und Gruppen neu generiert. Er wird von der Main-Ansicht geladen und lädt diese auch wieder, daher eine Assoziationsbeziehung zwischen Main und Setup.
  Die Main-Ansicht besitzt eine (Admin-)Appointments-Ansicht zum Anzeigen der Termine und eine AdminGroups zum Anzeigen der Gruppen.
- Für die einzelnen Einträge gibt es jeweils die AdminAppointmentEntry und GroupEntry.
- Gerade an der Aufteilung in mehrere Views in der Adminansicht erkennt man sehr gut das Kompositum-Entwurfsmuster: Statt einen einzigen View mit Presenter zu bauen, wurden einzelne, selbstständige parametrisierbare Komponenten geschaffen, die sich leicht wiederverwenden lassen.
- Diese Komponenten sind außerdem in sich gekapselt, da sie ihre dazugehörige View selbst laden und können so an beliebiger Stelle ohne Wissen über die Interna der View wiederverwendet werden.
+ Für die einzelnen Einträge gibt es jeweils die AdminAppointmentEntry und GroupEntry. \\
+ Die Komponenten Appointments und die Entry-Komponenten sind außerdem in sich gekapselt, da sie ihre dazugehörige View selbst laden und so an beliebiger Stelle ohne Wissen über die Interna der View wiederverwendet werden können. \\
  Schließlich gibt es noch den EditDialog, der das Dialogfenster zum Bearbeiten eines Termins realisiert.
  Wie in der Studentenansicht besitzen die Presenter, die auf die Daten des Models zugreifen, zu den jeweiligen Models Assoziationsbeziehungen.
 
