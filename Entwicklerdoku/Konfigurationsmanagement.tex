@@ -1,5 +1,5 @@
 \section{Konfigurationsmanagement}
-Die Konfigurationen und Abhängigkeiten des Projekts wurden über Apache Maven verwaltet.
+Die Konfigurationen und Abhängigkeiten des Projekts wurden über Apache Maven verwaltet.
 
 \subsection{Abhängigkeiten}
 Für die Anwendung werden verschiedene Abhängigkeiten benötigt. Um diese zu Verwalten und zu beziehen wird das Dependency Management von Maven benutzt. Die entsprechend konfigurierten Abhängigkeiten werden beim Bauen oder Testen der Anwendung automatisch aus dem Maven Central Repository heruntergeladen.
@@ -8,7 +8,7 @@ Für die Anwendung werden verschiedene Abhängigkeiten benötigt. Um diese zu Ve
 Die Anwendung wird mithilfe des Maven Kompilierungsmechanismus (maven-compiler-plugin) mit Java 8 kompiliert und mithilfe des maven-assembly-plugin als ausführbares JAR inklusive Abhänigkeiten und Manifest-Datei gepackt. Dazu kann das Kommando \texttt{mvn clean package} verwendet werden. Die ausführbare Datei befindet sich danach im Verzeichnis target.
 
 \subsubsection{Konfiguration der Umgebung}
-Die Datenbank, welche von der Anwendung verwendet werden soll, wird in der Datei \texttt{src/main/resources/db.properties} konfiguriert. in/resources/db.properties} die Zugangsdaten für die Datenbank abgelegt werden. Zur Orientierung dient die Datei \texttt{src/main/resources/db.properties.example}. Nach dem konfigurieren kann die Anwendung wie beschrieben gebaut werden. Die Konfiguration ist dann im ausführbaren JAR enthalten.
+Die Datenbank, welche von der Anwendung verwendet werden soll, wird in der Datei \texttt{src/main/resources/db.properties} konfiguriert. Zur Orientierung dient die Datei \texttt{src/main/resources/db.properties.example}. Nach dem konfigurieren kann die Anwendung wie beschrieben gebaut werden. Die Konfiguration ist dann im ausführbaren JAR enthalten.
 
 \subsection{Generierung von Dokumentation}
 Die JavaDoc Dokumentation des Projektes wird mithilfe des maven-javadoc-plugin generiert. Da nach LaTex exportiert werden soll, wird das Doclet TexDoclet \href{http://doclet.github.io}{http://doclet.github.io} verwendet. Da dies nicht als Maven Abhängigkeit publiziert ist, wir das entsprechende JAR dem Projekt im Verzeichnis doclets beigelegt und über die Konfiguration des maven-javadoc-plugin eingebunden und parametrisiert. Die Dokumentation kann mittels \texttt{mvn javadoc:javadoc} generiert werden und befindet sich im Verzeichnis \texttt{target/site/apidocs}.
