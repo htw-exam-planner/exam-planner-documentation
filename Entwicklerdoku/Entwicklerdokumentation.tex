@@ -1,14 +1,20 @@
 \documentclass[a4paper,10pt]{scrartcl}
 \usepackage[utf8]{inputenc}
 \usepackage{tocbibind}
-\usepackage{xcolor}
+\usepackage[table,x11names]{xcolor}
+\usepackage{hyperref}
 \usepackage[ngerman]{babel}
+\usepackage{graphicx}
+\usepackage{float}
 
 \input{Schnittstelle/JavaDoc_preamble}
 \def \bf {\textbf}
 
 %For smaller margins
 \usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+
+%For less ugly fonts
+\usepackage{lmodern}
 
 \begin{document}
 	\title{Prüfungsplaner \\ Entwicklerdokumentation}
@@ -19,14 +25,25 @@
 		Fabian Krehnke}
 	\date{Sommersemester 2018}
 	\maketitle
-	
+
 	Dieses Dokument beinhaltet die Entwicklerdokumentation der Applikation "Prüfungsplaner". Sie wurde im Rahmen der Belegarbeit Software-Engineering 2 von Gruppe7 entwickelt. Die Anwendung dient zur Unterstützung und Planung von Präsentationsterminen.
-	
+	\newpage
+
 	\tableofcontents
+	\newpage
+
+	\listoffigures
+	\newpage
 
   \input{Entwurf/entwurfsdoku}
-  
+	\newpage
+
+	\input{Entwurf/Datenbankdokumentation}
+	\newpage
+
   \input{Testdokumentation/testdoku}
-  
+	\newpage
+
+	\section{Schnittstellendokumentation}
   \input{Schnittstelle/JavaDoc}
 \end{document}
